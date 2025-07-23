@@ -19,7 +19,7 @@ const Cart = () => {
     const fetch = async () => {
       try {
         const res = await axios.get(
-          "https://bookcove.onrender.com/api/v1/get-user-cart",
+          "http://localhost:1000/api/v1/get-user-cart",
           { headers }
         );
         setCart(res.data.data);
@@ -33,7 +33,7 @@ const Cart = () => {
   //to del item
   const deleteItem = async (bookid) => {
     const res = await axios.put(
-      `https://bookcove.onrender.com/api/v1/remove-book-from-cart/${bookid}`,
+      `http://localhost:1000/api/v1/remove-book-from-cart/${bookid}`,
       {},
       { headers }
     );
@@ -55,7 +55,7 @@ const Cart = () => {
   const PlaceOrder = async () => {
     try {
       const res = await axios.post(
-        `https://bookcove.onrender.com/api/v1/place-order`,
+        `http://localhost:1000/api/v1/place-order`,
         { order: cart },
         { headers }
       );

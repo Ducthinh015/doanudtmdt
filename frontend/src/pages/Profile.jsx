@@ -18,7 +18,7 @@ const Profile = () => {
     const fetch = async () => {
       try {
         const response = await axios.get(
-          "https://bookcove.onrender.com/api/v1/get-user-information",
+          "http://localhost:1000/api/v1/get-user-information",
           { headers }
         );
         setProfile(response.data);

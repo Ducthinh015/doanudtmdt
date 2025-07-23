@@ -66,7 +66,7 @@ const ViewBookDetails = () => {
 
   const deleteBook = async () => {
     const response = await axios.delete(
-      "https://bookcove.onrender.com/api/v1/delete-book",
+      "http://localhost:1000/api/v1/delete-book",
       { headers }
     );
     alert(response.data.message);

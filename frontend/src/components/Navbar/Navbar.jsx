@@ -31,13 +31,8 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="z-50 h-[10%] relative flex bg-white/10 text-white px-8 py-2 items-center justify-between border-b-2 backdrop-blur-md">
+      <nav className="z-50 h-16 relative flex text-white px-9 py-2 items-center justify-between">
         <Link className="flex" to="/">
-          <img
-            className="h-19 w-[14%] me-0 items-center "
-            src="images/logo.png"
-            alt="logo"
-          />
           <div className="text-2xl font-semibold mt-3">
             <h1 className="font-bold ">BookCove</h1>
           </div>
@@ -50,14 +45,14 @@ const Navbar = () => {
                 {item.title === "Profile" || item.title === "Admin Profile" ? (
                   <Link
                     to={item.link}
-                    className="hover:text-beige transition-all duration-300"
+                    className="hover:font-semibold transition-all duration-300"
                   >
                     {item.title}
                   </Link>
                 ) : (
                   <Link
                     to={item.link}
-                    className="hover:text-beige transition-all duration-300"
+                    className="hover:font-semibold transition-all duration-300"
                   >
                     {item.title}
                   </Link>

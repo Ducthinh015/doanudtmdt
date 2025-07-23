@@ -10,40 +10,46 @@ const BookCard = ({ data, favourite }) => {
   };
   const handleRemoveBook = async () => {
     const response = await axios.put(
-      `https://bookcove.onrender.com/api/v1/remove-book-from-favourite/${data._id}`,
+      `http://localhost:1000/api/v1/remove-book-from-favourite/${data._id}`,
       {},
       { headers }
     );
     alert(response.data.message);
   };
   return (
-    <>
-      <div className="w-90 bg-white/30 backdrop-blur-md border rounded p-2 flex flex-col ">
-        <Link to={`/view-book-details/${data._id}`}>
-          <div className=" flex items-center justify-center">
-            <img src={data.url} alt="/" className="h-[35vh]   " />
-          </div>
-          <div className="flex flex-col justify-center items-center">
-            <div className="bg-zinc-500 rounded flex items-center justify-center"></div>
-            <h2 className="mt-4 text-xl text-white font-bold ">{data.title}</h2>
-            <p className="mt-2 text-white font-semibold">by {data.author}</p>
-            <p className="mt-2 text-white font-semibold">
-              {"\u20B9"}
-              {data.price}
-            </p>
-          </div>
-        </Link>
+    <div className="w-80 h-[90%] bg-none backdrop-blur-md p-4 flex flex-col shadow-md border border-white/10 rounded-xl transition-transform hover:scale-105 duration-300">
+      {/* Link to view book details */}
+      <Link to={`/view-book-details/${data._id}`}>
+        {/* Book Image */}
+        <div className="flex items-center justify-center">
+          <img
+            src={data.url}
+            alt={data.title}
+            className="h-[35vh] object-contain rounded"
+          />
+        </div>
 
-        {favourite && (
-          <button
-            onClick={handleRemoveBook}
-            className="bg-transparent border-2 font-semibold mt-2 p-1 rounded text-white"
-          >
-            Remove from favourites
-          </button>
-        )}
-      </div>
-    </>
+        {/* Book Info */}
+        <div className="flex flex-col justify-center items-center mt-4 text-center">
+          <h2 className="text-xl text-white font-bold">{data.title}</h2>
+          <p className="mt-1 text-white font-semibold">by {data.author}</p>
+          <p className="mt-1 text-white font-semibold">
+            {"\u20B9"}
+            {data.price}
+          </p>
+        </div>
+      </Link>
+
+      {/* Favourite Button */}
+      {favourite && (
+        <button
+          onClick={handleRemoveBook}
+          className="mt-4 px-3 py-1 bg-transparent border border-white/40 hover:bg-white hover:text-black transition-colors font-semibold rounded"
+        >
+          Remove from favourites
+        </button>
+      )}
+    </div>
   );
 };
 

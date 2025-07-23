@@ -28,7 +28,7 @@ const SignUp = () => {
         alert("All fields are required");
       } else {
         const response = await axios.post(
-          "https://bookcove.onrender.com/api/v1/sign-up",
+          "http://localhost:1000/api/v1/sign-up",
           Values
         );
         console.log(response);

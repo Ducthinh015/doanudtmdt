@@ -42,7 +42,7 @@ const AllOrders = () => {
   const submitChanges = async (i) => {
     const id = allOrders[i]._id;
     const res = await axios.put(
-      `https://bookcove.onrender.com/api/v1/update-status/${id}`,
+      `http://localhost:1000/api/v1/update-status/${id}`,
       values,
       { headers }
     );

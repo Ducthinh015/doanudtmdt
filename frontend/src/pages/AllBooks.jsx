@@ -11,7 +11,7 @@ const AllBooks = () => {
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(
-        "https://bookcove.onrender.com/api/v1/get-all-books"
+        "http://localhost:1000/api/v1/get-all-books"
       );
       setData(response.data.data);
     };
@@ -23,12 +23,12 @@ const AllBooks = () => {
   );
 
   return (
-    <div
-      style={{ backgroundImage: `url(/images/AllBooksBg.webp)` }}
-      className="h-screen bg-cover text-white"
-    >
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#0a192f] via-black to-black text-white bg-cover">
+      {/* Navbar */}
       <Navbar />
-      <div className="bg-transparent h-auto px-12 py-8 overflow-y-auto max-h-[90vh]">
+
+      {/* Content */}
+      <div className="px-12 py-8 flex-1 overflow-y-auto relative">
         <h4 className="text-3xl text-white uppercase text-center font-semibold">
           All Books
         </h4>
@@ -44,7 +44,6 @@ const AllBooks = () => {
               background: "rgba(255, 255, 255, 0.1)",
               border: "1px solid rgba(255, 255, 255, 0.2)",
               backdropFilter: "blur(10px)",
-              WebkitBackdropFilter: "blur(10px)",
               borderRadius: "12px",
               padding: "12px 20px",
               color: "#fff",
@@ -64,7 +63,7 @@ const AllBooks = () => {
         )}
 
         {/* Filtered Book Grid */}
-        <div className="my-8 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="my-8 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4 relative z-20">
           {filteredBooks?.length > 0 ? (
             filteredBooks.map((items, i) => (
               <div key={i}>

@@ -15,7 +15,7 @@ const UserOrderHistory = () => {
     const fetch = async () => {
       try {
         const res = await axios.get(
-          "https://bookcove.onrender.com/api/v1/get-order-history",
+          "http://localhost:1000/api/v1/get-order-history",
           { headers }
         );
 
