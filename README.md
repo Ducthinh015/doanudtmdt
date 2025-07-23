@@ -38,7 +38,5 @@ For admin demo : username - admin123 , password - 123456
 - **Deployment:** Render, Netlify
 
 ## Demo screenshots
+<img width="1920" height="973" alt="Screenshot (706)" src="https://github.com/user-attachments/assets/1ca17910-b2a0-4f28-b440-638b87f20edf" />
 
-
-
-![Screenshot (570)](https://github.com/user-attachments/assets/cd50df76-2cd7-40d0-8eb7-9ac34fe9139c)
