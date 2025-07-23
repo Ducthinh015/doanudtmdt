@@ -18,11 +18,11 @@ const Sidebar = ({ data }) => {
   };
 
   return (
-    <div className="bg-white/10 border border-white/30 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between h-full">
+    <div className="mt-28 bg-white/10 border border-white/30 rounded-2xl p-6 backdrop-blur-md flex flex-col justify-between h-98">
       {/* Profile Section */}
       <div className="flex flex-col items-center text-center">
         <img
-          src={data.avatar}
+          src={data.avatar || "https://i.ibb.co/4pDNDk1/avatar.png"}
           alt="User Avatar"
           className="h-20 w-20 sm:h-28 sm:w-28 lg:h-32 lg:w-32 rounded-full object-cover border-2 border-white/30"
         />

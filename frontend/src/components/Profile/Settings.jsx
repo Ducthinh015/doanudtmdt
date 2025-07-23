@@ -30,7 +30,7 @@ const Settings = () => {
 
   const submitAddress = async () => {
     const response = await axios.put(
-      "http://localhost:1000/api/v1/update-address",
+      "https://bookcove.onrender.com/api/v1/update-address",
       value,
       { headers }
     );

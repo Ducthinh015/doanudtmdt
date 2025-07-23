@@ -66,7 +66,7 @@ const ViewBookDetails = () => {
 
   const deleteBook = async () => {
     const response = await axios.delete(
-      "http://localhost:1000/api/v1/delete-book",
+      "https://bookcove.onrender.com/api/v1/delete-book",
       { headers }
     );
     alert(response.data.message);
@@ -83,10 +83,7 @@ const ViewBookDetails = () => {
 
   return (
     <>
-      <div
-        className="min-h-screen bg-cover text-white"
-        style={{ backgroundImage: `url(/images/AllBooksBg.webp)` }}
-      >
+      <div className="min-h-screen bg-gradient-to-b from-[#0a192f] via-black to-black text-white">
         <Navbar />
         <div className="px-4 md:px-12 py-8 flex flex-col lg:flex-row gap-8 mt-8">
           {/* Left Section: Image + Admin/User Buttons */}

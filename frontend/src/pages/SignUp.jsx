@@ -28,7 +28,7 @@ const SignUp = () => {
         alert("All fields are required");
       } else {
         const response = await axios.post(
-          "http://localhost:1000/api/v1/sign-up",
+          "https://bookcove.onrender.com/api/v1/sign-up",
           Values
         );
         console.log(response);
@@ -68,7 +68,7 @@ const SignUp = () => {
               </label>
               <input
                 type="text"
-                className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-darkbrown"
+                className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0a192f]"
                 name="username"
                 placeholder="Username"
                 required
@@ -85,7 +85,7 @@ const SignUp = () => {
               </label>
               <input
                 type="email"
-                className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-darkbrown"
+                className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0a192f]"
                 name="email"
                 placeholder="Email"
                 value={Values.email}
@@ -102,7 +102,7 @@ const SignUp = () => {
               </label>
               <input
                 type="password"
-                className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-darkbrown"
+                className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0a192f]"
                 name="password"
                 placeholder="Password"
                 value={Values.password}
@@ -120,7 +120,7 @@ const SignUp = () => {
               </label>
               <textarea
                 rows="5"
-                className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-darkbrown"
+                className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0a192f]"
                 name="address"
                 placeholder="Address"
                 required
@@ -131,7 +131,7 @@ const SignUp = () => {
 
             <button
               type="submit"
-              className="w-full py-2 px-4 bg-darkbrown text-white rounded-md hover:bg-darkbrown/95 transition"
+              className="w-full py-2 px-4 bg-[#0a192f] text-white rounded-md hover:bg-white/95 hover:text-[#0a192f] hover:border transition"
             >
               Sign Up
             </button>

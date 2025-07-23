@@ -39,7 +39,7 @@ const UpdateBook = () => {
         alert("All fields are required");
       } else {
         const res = await axios.put(
-          "http://localhost:1000/api/v1/update-book",
+          "https://bookcove.onrender.com/api/v1/update-book",
           Data,
           { headers }
         );
@@ -63,7 +63,7 @@ const UpdateBook = () => {
     const fetch = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:1000/api/v1/get-book-by-id/${id}`
+          `https://bookcove.onrender.com/api/v1/get-book-by-id/${id}`
         );
         setData(response.data.data);
       } catch (err) {

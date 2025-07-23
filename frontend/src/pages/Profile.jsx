@@ -18,7 +18,7 @@ const Profile = () => {
     const fetch = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:1000/api/v1/get-user-information",
+          "https://bookcove.onrender.com/api/v1/get-user-information",
           { headers }
         );
         setProfile(response.data);
@@ -30,10 +30,7 @@ const Profile = () => {
   }, []);
 
   return (
-    <div
-      className="min-h-screen bg-cover text-white"
-      style={{ backgroundImage: `url(/images/background-img.webp)` }}
-    >
+    <div className="min-h-screen bg-gradient-to-b from-[#0a192f] to-black text-white">
       <Navbar />
       <div className="px-1 md:px-12 py-8 flex flex-col lg:flex-row gap-6">
         {!profile ? (

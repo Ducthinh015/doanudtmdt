@@ -42,7 +42,7 @@ const AllOrders = () => {
   const submitChanges = async (i) => {
     const id = allOrders[i]._id;
     const res = await axios.put(
-      `http://localhost:1000/api/v1/update-status/${id}`,
+      `https://bookcove.onrender.com/api/v1/update-status/${id}`,
       values,
       { headers }
     );
@@ -62,7 +62,7 @@ const AllOrders = () => {
       )}
 
       {allOrders && allOrders.length > 0 && (
-        <div className="h-[80vh] p-4 text-white overflow-y-auto">
+        <div className="min-h-screen p-4 text-white overflow-y-auto">
           <h1 className="text-3xl sm:text-2xl md:text-5xl font-semibold text-white mb-8">
             All Orders
           </h1>

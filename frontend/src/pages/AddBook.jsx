@@ -37,7 +37,7 @@ const AddBook = () => {
         alert("All fields are required");
       } else {
         const res = await axios.post(
-          "http://localhost:1000/api/v1/add-book",
+          "https://bookcove.onrender.com/api/v1/add-book",
           Data,
           { headers }
         );

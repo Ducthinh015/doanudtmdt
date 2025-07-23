@@ -26,7 +26,7 @@ const Login = () => {
         alert("All fields are required");
       } else {
         const response = await axios.post(
-          "http://localhost:1000/api/v1/sign-in",
+          "https://bookcove.onrender.com/api/v1/sign-in",
           Values
         );
         dispatch(authActions.login());
@@ -70,7 +70,7 @@ const Login = () => {
                 type="text"
                 name="username"
                 placeholder="Username"
-                className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-darkbrown"
+                className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0a192f]"
                 value={Values.username}
                 onChange={change}
                 required
@@ -88,7 +88,7 @@ const Login = () => {
                 type="password"
                 name="password"
                 placeholder="Password"
-                className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-darkbrown"
+                className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0a192f]"
                 required
                 value={Values.password}
                 onChange={change}
@@ -98,7 +98,7 @@ const Login = () => {
             <button
               onClick={submit}
               type="submit"
-              className="w-full py-2 px-4 bg-darkbrown text-white rounded-md hover:bg-darkbrown/95"
+              className="w-full py-2 px-4 bg-[#0a192f] text-white rounded-md hover:bg-white hover:text-[#0a192f] hover:border"
             >
               Login
             </button>
@@ -108,7 +108,7 @@ const Login = () => {
             Don’t have an account?{" "}
             <Link
               to="/signup"
-              className="text-darkbrown hover:underline font-semibold"
+              className=" text-[#0a192f] hover:border font-semibold"
             >
               Sign Up
             </Link>

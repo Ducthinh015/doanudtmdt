@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import RemoveShoppingCartIcon from "@mui/icons-material/RemoveShoppingCart";
 import Navbar from "../components/Navbar/Navbar";
+
 const Cart = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useState([]); // initial as empty array
@@ -19,7 +20,7 @@ const Cart = () => {
     const fetch = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:1000/api/v1/get-user-cart",
+          "https://bookcove.onrender.com/api/v1/get-user-cart",
           { headers }
         );
         setCart(res.data.data);
@@ -28,12 +29,12 @@ const Cart = () => {
       }
     };
     fetch();
-  }, [cart]);
+  }, []);
 
   //to del item
   const deleteItem = async (bookid) => {
     const res = await axios.put(
-      `http://localhost:1000/api/v1/remove-book-from-cart/${bookid}`,
+      `https://bookcove.onrender.com/api/v1/remove-book-from-cart/${bookid}`,
       {},
       { headers }
     );
@@ -55,7 +56,7 @@ const Cart = () => {
   const PlaceOrder = async () => {
     try {
       const res = await axios.post(
-        `http://localhost:1000/api/v1/place-order`,
+        `https://bookcove.onrender.com/api/v1/place-order`,
         { order: cart },
         { headers }
       );
@@ -68,12 +69,9 @@ const Cart = () => {
   };
 
   return (
-    <div
-      className="h-screen bg-cover text-white overflow-y-scroll"
-      style={{ backgroundImage: `url(/images/cart-bg.jpg)` }}
-    >
+    <div className="h-screen bg-gradient-to-b from-[#0a192f] to-white text-white overflow-hidden">
       <Navbar />
-      <div className=" h-screen w-full p-8">
+      <div className="h-screen overflow-y-auto p-8 custom-scrollbar">
         {!cart && (
           <div className="w-full h-[100%] flex items-center justify-center">
             <Loader />
@@ -81,16 +79,11 @@ const Cart = () => {
         )}
 
         {cart && cart.length === 0 && (
-          <div className="h-screen bg-transparent">
+          <div className="h-full bg-transparent">
             <div className="h-full flex items-center justify-center flex-col">
               <h1 className="text-5xl lg:text-6xl font-semibold text-white opacity-30">
                 Cart is empty
               </h1>
-              {/* <img
-        className="lg:h-[50vh]"
-        src="/empty-cart.png"
-        alt="Empty cart image"
-      /> */}
             </div>
           </div>
         )}
