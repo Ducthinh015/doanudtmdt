@@ -9,6 +9,7 @@ const AllBooks = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
 
+  // initial load
   useEffect(() => {
     const fetch = async () => {
       const response = await axios.get(`${API_BASE}/api/v1/get-all-books`);
@@ -17,9 +18,34 @@ const AllBooks = () => {
     fetch();
   }, []);
 
-  const filteredBooks = Data?.filter((book) =>
-    book.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  // backend search (debounced)
+  useEffect(() => {
+    const controller = new AbortController();
+    const timer = setTimeout(async () => {
+      try {
+        const q = searchTerm.trim();
+        if (q.length >= 3) {
+          const res = await axios.get(
+            `${API_BASE}/api/v1/books/search`,
+            { params: { query: q }, signal: controller.signal }
+          );
+          setData(res.data.data);
+        } else {
+          const response = await axios.get(`${API_BASE}/api/v1/get-all-books`, { signal: controller.signal });
+          setData(response.data.data);
+        }
+      } catch (e) {
+        // ignore abort errors
+      }
+    }, 300);
+    return () => {
+      controller.abort();
+      clearTimeout(timer);
+    };
+  }, [searchTerm]);
+
+  // when using backend search, Data is already filtered
+  const filteredBooks = Data;
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-[#0a192f] via-black to-black text-white bg-cover">

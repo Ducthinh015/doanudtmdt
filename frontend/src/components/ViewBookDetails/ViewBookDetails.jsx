@@ -9,11 +9,13 @@ import Loader from "../Loader/Loader";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import { trackEvent } from "../../utils/analytics";
 
 const ViewBookDetails = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [Data, setData] = useState();
+  const [related, setRelated] = useState([]);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const role = useSelector((state) => state.auth.role);
   const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
@@ -29,7 +31,20 @@ const ViewBookDetails = () => {
       }
     };
     fetch();
-  }, []);
+  }, [id]);
+
+  // track view & fetch related
+  useEffect(() => {
+    (async () => {
+      if (id) {
+        trackEvent("view", { bookId: id });
+        try {
+          const r = await axios.get(`${API_BASE}/api/v1/books/related`, { params: { bookId: id } });
+          setRelated(r.data.data || []);
+        } catch (_) {}
+      }
+    })();
+  }, [id]);
 
   const headers = {
     authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -41,6 +56,7 @@ const ViewBookDetails = () => {
     try {
       const response = await axios.put(`${API_BASE}/api/v1/add-book-to-favourite`, {}, { headers });
       alert(response.data.message);
+      trackEvent("favorite", { bookId: id });
     } catch (error) {
       console.log("Failed to add to favorites", error);
     }
@@ -50,6 +66,7 @@ const ViewBookDetails = () => {
     try {
       const response = await axios.put(`${API_BASE}/api/v1/add-to-cart`, {}, { headers });
       alert(response.data.message);
+      trackEvent("add_to_cart", { bookId: id });
     } catch (error) {
       console.log("Failed to add to Cart", error);
     }
@@ -131,6 +148,22 @@ const ViewBookDetails = () => {
           </div>
         </div>
       </div>
+      {/* Related Books */}
+      {related?.length > 0 && (
+        <div className="px-4 md:px-12 pb-12">
+          <h3 className="text-xl font-semibold mb-4">Gợi ý cho bạn</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {related.map((b, i) => (
+              <Link key={i} to={`/view-book-details/${b._id}`} className="bg-white/10 p-3 rounded hover:bg-white/20">
+                <img src={b.url} alt={b.title} className="w-full h-48 object-cover rounded" />
+                <div className="mt-2 font-semibold">{b.title}</div>
+                <div className="text-sm opacity-80">{b.author}</div>
+                <div className="text-sm">{Number(b.price).toLocaleString('vi-VN')} ₫</div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
     </>
   );
 };

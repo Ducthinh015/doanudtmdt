@@ -1,5 +1,6 @@
 import Hero from "../components/Home/Hero";
 import RecentlyAdded from "../components/Home/RecentlyAdded";
+import RecentlyViewed from "../components/Home/RecentlyViewed";
 import Navbar from "../components/Navbar/Navbar";
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
         <Hero />
       </div>
       <RecentlyAdded />
+      <RecentlyViewed />
     </>
   );
 };

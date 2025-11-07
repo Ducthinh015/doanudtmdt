@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
+import { trackEvent } from "../utils/analytics";
 import Navbar from "../components/Navbar/Navbar";
 
 const VnpayReturn = () => {
@@ -32,6 +33,7 @@ const VnpayReturn = () => {
           // fetch cart
           const cartRes = await axios.get(`${API_BASE}/api/v1/get-user-cart`, { headers });
           const cart = cartRes.data?.data || [];
+          const amount = cart.reduce((sum, it) => sum + (Number(it.price) || 0), 0);
 
           if (cart.length === 0) {
             setStatus("Giỏ hàng trống sau thanh toán. Vui lòng kiểm tra lịch sử đơn hàng.");
@@ -48,6 +50,10 @@ const VnpayReturn = () => {
 
           if (orderRes.data?.status === "Success") {
             setStatus("Đặt hàng thành công!");
+            const orderId = orderRes.data?.orderId || orderRes.data?.data?._id || null;
+            try {
+              await trackEvent("purchase", { meta: { amount, orderId } });
+            } catch (_) {}
             navigate("/profile/orderHistory");
           } else {
             setStatus("Thanh toán thành công nhưng tạo đơn hàng thất bại.");

@@ -16,6 +16,24 @@ router.post("/add-book", authenticationToken, async (req, res) => {
       return res
         .status(500)
         .json({ message: "Access denied, you are not the admin" });
+
+// related books by author or language
+router.get("/books/related", async (req, res) => {
+  try {
+    const { bookId } = req.query;
+    if (!bookId) return res.status(400).json({ message: "Thiếu bookId" });
+    const current = await Book.findById(bookId);
+    if (!current) return res.status(404).json({ message: "Không tìm thấy sách" });
+    const query = {
+      _id: { $ne: current._id },
+      $or: [{ author: current.author }, { language: current.language }],
+    };
+    const books = await Book.find(query).limit(6);
+    return res.json({ status: "Success", data: books });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
     }
 
     const book = new Book({
@@ -57,9 +75,9 @@ router.delete("/delete-book", authenticationToken, async (req, res) => {
   try {
     const { bookid } = req.headers;
     await Book.findByIdAndDelete(bookid);
-    return res.status(200).json({ message: "Book del success" });
+    return res.status(200).json({ message: "Xóa sách thành công" });
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: "Lỗi server" });
   }
 });
 
@@ -72,7 +90,26 @@ router.get("/get-all-books", async (req, res) => {
       data: books,
     });
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: "Lỗi server" });
+  }
+});
+
+// search books by query (title/author/desc)
+router.get("/books/search", async (req, res) => {
+  try {
+    const q = (req.query.query || "").trim();
+    if (!q) {
+      return res.json({ status: "Thành công", data: [] });
+    }
+    const regex = new RegExp(q, "i");
+    const books = await Book.find({
+      $or: [{ title: regex }, { author: regex }, { desc: regex }],
+    })
+      .sort({ createdAt: -1 })
+      .limit(50);
+    return res.json({ status: "Thành công", data: books });
+  } catch (error) {
+    res.status(500).json({ message: "Lỗi server" });
   }
 });
 
@@ -85,7 +122,7 @@ router.get("/get-recent-books", async (req, res) => {
       data: books,
     });
   } catch (error) {
-    res.status(500).json({ message: "error occured" });
+    res.status(500).json({ message: "Lỗi server" });
   }
 });
 
@@ -99,7 +136,7 @@ router.get("/get-book-by-id/:id", async (req, res) => {
       data: book,
     });
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: "Lỗi server" });
   }
 });
 
