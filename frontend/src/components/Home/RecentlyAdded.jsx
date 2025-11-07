@@ -3,9 +3,11 @@ import axios from "axios";
 import BookCard from "../BookCard/BookCard";
 import Loader from "../Loader/Loader";
 import Newsletter from "../Newsletter/Newsletter";
+import { useSelector } from "react-redux";
 
 const RecentlyAdded = () => {
   const [Data, setData] = useState();
+  const role = useSelector((state) => state.auth.role);
   const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
 
   useEffect(() => {
@@ -45,10 +47,12 @@ const RecentlyAdded = () => {
         </div>
       )}
 
-      {/* Newsletter Section */}
-      <div className="mt-12">
-        <Newsletter />
-      </div>
+      {/* Newsletter Section (ẩn với admin) */}
+      {role !== "admin" && (
+        <div className="mt-12">
+          <Newsletter />
+        </div>
+      )}
     </div>
   );
 };

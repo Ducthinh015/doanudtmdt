@@ -19,6 +19,7 @@ import AddBook from "./pages/AddBook";
 import UpdateBook from "./pages/UpdateBook";
 import VnpayReturn from "./pages/VnpayReturn";
 import Chatbot from "./components/Chatbot/Chatbot";
+import AdminAnalytics from "./pages/Admin/Analytics";
 
 function App() {
   const dispatch = useDispatch();
@@ -58,6 +59,9 @@ function App() {
         <Route path="/SignUp" element={<SignUp />} />
         <Route path="/view-book-details/:id" element={<ViewBookDetails />} />
         <Route path="/vnpay-return" element={<VnpayReturn />} />
+        {role === "admin" && (
+          <Route path="/profile/admin/analytics" element={<AdminAnalytics />} />
+        )}
       </Routes>
       {role === "user" && (
         <div className="fixed bottom-4 right-4 z-50">

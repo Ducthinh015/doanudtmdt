@@ -8,7 +8,7 @@ mongoose
   .then(async () => {
     await Book.deleteMany();
     await Book.insertMany(books);
-    console.log("✅ 10 books seeded!");
+    console.log("✅ 40 books seeded!");
   })
   .catch((err) => {
     console.error("❌ Seeding failed:", err);

@@ -67,6 +67,12 @@ const Sidebar = ({ data }) => {
               Tất cả đơn hàng
             </Link>
             <Link
+              to="/profile/admin/analytics"
+              className="text-white w-full text-center font-medium hover:text-beige transition duration-300"
+            >
+              Phân tích
+            </Link>
+            <Link
               to="/profile/add-book"
               className="text-white w-full text-center font-medium hover:text-beige transition duration-300"
             >

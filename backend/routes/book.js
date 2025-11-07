@@ -46,7 +46,7 @@ router.get("/books/related", async (req, res) => {
     });
 
     await book.save();
-    res.status(200).json({ message: "Book added successfully" });
+    res.status(200).json({ message: "Thêm sách thành công" });
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
   }
@@ -64,7 +64,7 @@ router.put("/update-book", authenticationToken, async (req, res) => {
       desc: req.body.desc,
       language: req.body.language,
     });
-    res.status(200).json({ message: "Book updated successfully" }); // ✅ Response added
+    res.status(200).json({ message: "Cập nhật sách thành công" }); // ✅ Response added
   } catch (error) {
     res.status(500).json({ message: "Internal server error" });
   }

@@ -49,6 +49,12 @@ const MobileNav = () => {
             Tất cả đơn hàng
           </Link>
           <Link
+            to="/profile/admin/analytics"
+            className="text-zinc-100 font-semibold w-full text-center hover:bg-white/30 rounded transition-all duration-300"
+          >
+            Phân tích
+          </Link>
+          <Link
             to="/profile/add-book"
             className="text-zinc-100 font-semibold w-full text-center hover:bg-white/30 rounded transition-all duration-300"
           >
