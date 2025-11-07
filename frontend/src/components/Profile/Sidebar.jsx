@@ -41,19 +41,19 @@ const Sidebar = ({ data }) => {
               to="/profile"
               className="text-white w-full text-center font-medium hover:text-beige transition duration-300"
             >
-              Favourites
+              Yêu thích
             </Link>
             <Link
               to="/profile/orderHistory"
               className="text-white w-full text-center font-medium hover:text-beige transition duration-300"
             >
-              Order History
+              Lịch sử đơn hàng
             </Link>
             <Link
               to="/profile/settings"
               className="text-white w-full text-center font-medium hover:text-beige transition duration-300"
             >
-              Settings
+              Cài đặt
             </Link>
           </>
         )}
@@ -64,19 +64,19 @@ const Sidebar = ({ data }) => {
               to="/profile"
               className="text-white w-full text-center font-medium hover:text-beige transition duration-300"
             >
-              All Orders
+              Tất cả đơn hàng
             </Link>
             <Link
               to="/profile/add-book"
               className="text-white w-full text-center font-medium hover:text-beige transition duration-300"
             >
-              Add Book
+              Thêm sách
             </Link>
             <Link
               to="/profile/settings"
               className="text-white w-full text-center font-medium hover:text-beige transition duration-300"
             >
-              Settings
+              Cài đặt
             </Link>
           </>
         )}
@@ -87,7 +87,7 @@ const Sidebar = ({ data }) => {
         onClick={handleLogout}
         className="mt-8 bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 w-full rounded flex items-center justify-center gap-2 transition-all duration-300"
       >
-        <LogoutIcon /> Log Out
+        <LogoutIcon /> Đăng xuất
       </button>
     </div>
   );

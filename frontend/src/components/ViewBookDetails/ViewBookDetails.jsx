@@ -16,13 +16,12 @@ const ViewBookDetails = () => {
   const [Data, setData] = useState();
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
   const role = useSelector((state) => state.auth.role);
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
 
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await axios.get(
-          `https://bookcove.onrender.com/api/v1/get-book-by-id/${id}`
-        );
+        const response = await axios.get(`${API_BASE}/api/v1/get-book-by-id/${id}`);
         setData(response.data.data);
         console.log(response.data);
       } catch (err) {
@@ -40,11 +39,7 @@ const ViewBookDetails = () => {
 
   const handleFav = async () => {
     try {
-      const response = await axios.put(
-        "https://bookcove.onrender.com/api/v1/add-book-to-favourite",
-        {},
-        { headers }
-      );
+      const response = await axios.put(`${API_BASE}/api/v1/add-book-to-favourite`, {}, { headers });
       alert(response.data.message);
     } catch (error) {
       console.log("Failed to add to favorites", error);
@@ -53,11 +48,7 @@ const ViewBookDetails = () => {
 
   const handleCart = async () => {
     try {
-      const response = await axios.put(
-        "https://bookcove.onrender.com/api/v1/add-to-cart",
-        {},
-        { headers }
-      );
+      const response = await axios.put(`${API_BASE}/api/v1/add-to-cart`, {}, { headers });
       alert(response.data.message);
     } catch (error) {
       console.log("Failed to add to Cart", error);
@@ -65,10 +56,7 @@ const ViewBookDetails = () => {
   };
 
   const deleteBook = async () => {
-    const response = await axios.delete(
-      "https://bookcove.onrender.com/api/v1/delete-book",
-      { headers }
-    );
+    const response = await axios.delete(`${API_BASE}/api/v1/delete-book`, { headers });
     alert(response.data.message);
     navigate("/all-books");
   };
@@ -136,10 +124,10 @@ const ViewBookDetails = () => {
           {/* Right Section: Book Details */}
           <div className="w-full lg:w-1/2 p-4 text-white">
             <h2 className="text-3xl font-bold mb-4">{Data.title}</h2>
-            <p className="mb-2 font-semibold">Author: {Data.author}</p>
+            <p className="mb-2 font-semibold">Tác giả: {Data.author}</p>
             <p className="mb-4 font-semibold">{Data.desc}</p>
-            <p className="mb-2 font-semibold">Price: ₹{Data.price}</p>
-            <p className="mb-2 font-semibold">Language: {Data.language}</p>
+            <p className="mb-2 font-semibold">Giá: {Data.price?.toLocaleString("vi-VN")} ₫</p>
+            <p className="mb-2 font-semibold">Ngôn ngữ: {Data.language}</p>
           </div>
         </div>
       </div>

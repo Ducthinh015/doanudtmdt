@@ -23,19 +23,19 @@ const MobileNav = () => {
             to="/profile"
             className="text-zinc-100 font-semibold w-full  text-center hover:bg-white/30 rounded transition-all duration-300"
           >
-            Favourites
+            Yêu thích
           </Link>
           <Link
             to="/profile/orderHistory"
             className="text-zinc-100 font-semibold w-full text-center hover:bg-white/30 rounded transition-all duration-300"
           >
-            Order History
+            Lịch sử đơn hàng
           </Link>
           <Link
             to="/profile/settings"
             className="text-zinc-100 font-semibold w-full text-center hover:bg-white/30 rounded transition-all duration-300"
           >
-            Settings
+            Cài đặt
           </Link>
         </div>
       )}
@@ -46,19 +46,19 @@ const MobileNav = () => {
             to="/profile"
             className="text-zinc-100 font-semibold w-full  text-center hover:bg-white/30 rounded transition-all duration-300"
           >
-            All order History
+            Tất cả đơn hàng
           </Link>
           <Link
             to="/profile/add-book"
             className="text-zinc-100 font-semibold w-full text-center hover:bg-white/30 rounded transition-all duration-300"
           >
-            Add Book
+            Thêm sách
           </Link>
           <button
             onClick={handleLogout}
             className="text-zinc-100 font-semibold w-full text-center hover:bg-white/30 rounded transition-all duration-300"
           >
-            Log Out
+            Đăng xuất
           </button>
         </div>
       )}

@@ -1,6 +1,5 @@
 import Home from "./pages/Home";
 import "./App.css";
-import Footer from "./components/Footer/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AllBooks from "./pages/AllBooks";
 import LogIn from "./pages/LogIn";
@@ -18,6 +17,8 @@ import UserOrderHistory from "./components/Profile/UserOrderHistory";
 import Settings from "./components/Profile/Settings";
 import AddBook from "./pages/AddBook";
 import UpdateBook from "./pages/UpdateBook";
+import VnpayReturn from "./pages/VnpayReturn";
+import Chatbot from "./components/Chatbot/Chatbot";
 
 function App() {
   const dispatch = useDispatch();
@@ -55,9 +56,14 @@ function App() {
 
         <Route path="/LogIn" element={<LogIn />} />
         <Route path="/SignUp" element={<SignUp />} />
-        <Route path="view-book-details/:id" element={<ViewBookDetails />} />
+        <Route path="/view-book-details/:id" element={<ViewBookDetails />} />
+        <Route path="/vnpay-return" element={<VnpayReturn />} />
       </Routes>
-      <Footer />
+      {role === "user" && (
+        <div className="fixed bottom-4 right-4 z-50">
+          <Chatbot />
+        </div>
+      )}
     </>
   );
 }

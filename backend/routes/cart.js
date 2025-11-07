@@ -8,14 +8,20 @@ router.put("/add-to-cart", authenticationToken, async (req, res) => {
   // console.log("headers from front: " + JSON.stringify(headers));
 
   try {
-    const { bookid, id } = req.headers;
-    // const userData = await User.findById(id);
+    const { bookid } = req.headers;
+    const id = req.user?.authClaims?.id || req.headers.id;
     const userData = await User.findById(id).populate({
       path: "cart",
       model: "Book", // replace "Book" with your actual book model name if different
     });
 
-    const bookinCart = userData.cart.includes(bookid);
+    if (!userData) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const bookinCart = userData.cart
+      .map((b) => (typeof b === "string" ? b : b._id?.toString()))
+      .includes(bookid?.toString());
     if (bookinCart) {
       return res.status(200).json({ message: " Book is already in cart" });
     }
@@ -38,7 +44,11 @@ router.put(
   async (req, res) => {
     try {
       const { bookid } = req.params;
-      const { id } = req.headers;
+      const id = req.user?.authClaims?.id || req.headers.id;
+      const userData = await User.findById(id);
+      if (!userData) {
+        return res.status(404).json({ message: "User not found" });
+      }
       await User.findByIdAndUpdate(id, { $pull: { cart: bookid } });
       return res.json({
         status: "Success",
@@ -53,8 +63,11 @@ router.put(
 //get cart of particular user
 router.get("/get-user-cart", authenticationToken, async (req, res) => {
   try {
-    const id = req.user.authClaims.id;
+    const id = req.user?.authClaims?.id || req.headers.id;
     const userData = await User.findById(id).populate("cart");
+    if (!userData) {
+      return res.status(404).json({ message: "User not found" });
+    }
     const cart = userData.cart.reverse();
     return res.json({
       status: "Success",

@@ -1,3 +1,4 @@
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
 import axios from "axios";
 import Navbar from "../components/Navbar/Navbar";
 import { useState, useEffect } from "react";
@@ -36,13 +37,9 @@ const UpdateBook = () => {
         Data.desc === "" ||
         Data.language === ""
       ) {
-        alert("All fields are required");
+        alert("Vui lòng điền đầy đủ thông tin");
       } else {
-        const res = await axios.put(
-          "https://bookcove.onrender.com/api/v1/update-book",
-          Data,
-          { headers }
-        );
+        const res = await axios.put(`${API_BASE}/api/v1/update-book`, Data, { headers });
         setData({
           url: "",
           title: "",
@@ -51,7 +48,7 @@ const UpdateBook = () => {
           desc: "",
           language: "",
         });
-        alert(res.data.message);
+        alert(res.data?.message || "Cập nhật sách thành công");
       }
     } catch (err) {
       alert(err.res.data.message);
@@ -62,9 +59,7 @@ const UpdateBook = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await axios.get(
-          `https://bookcove.onrender.com/api/v1/get-book-by-id/${id}`
-        );
+        const response = await axios.get(`${API_BASE}/api/v1/get-book-by-id/${id}`);
         setData(response.data.data);
       } catch (err) {
         console.error("Failed to fetch book details", err);
@@ -73,24 +68,21 @@ const UpdateBook = () => {
     fetch();
   }, []);
   return (
-    <div
-      className="h-screen bg-cover text-white "
-      style={{ backgroundImage: `url(/images/background-img.webp)` }}
-    >
+    <div className="min-h-screen bg-gradient-to-b from-[#0a192f] via-black to-black text-white">
       <Navbar />
       <div className="h-[100%] p-0 md:p-4 mt-4">
         <h1 className="text-3xl md:text 5xl font-semibold text-white mb-8 text-center uppercase">
-          Update Book
+          Cập nhật sách
         </h1>
-        <div className="p-4 bg-white/30 backdrop-blur-md border-2 rounded">
+        <div className="p-4 bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl">
           <div>
             <label htmlFor="" className="text-white font-semibold">
-              Image
+              Ảnh
             </label>
             <input
               type="text"
-              className="w-full mt-2 bg-transparent  border-2  text-white p-2 outline-none"
-              placeholder="url of image"
+              className="w-full mt-2 bg-white/10 placeholder-white/70 border border-white/40 text-white p-2 rounded outline-none"
+              placeholder="Đường dẫn ảnh"
               required
               value={Data.url}
               onChange={change}
@@ -99,12 +91,12 @@ const UpdateBook = () => {
 
           <div className="mt-4">
             <label htmlFor="" className="text-white font-semibold">
-              Title of Book
+              Tiêu đề sách
             </label>
             <input
               type="text"
-              className="w-full mt-2 bg-transparent border-2  text-white p-2 outline-none"
-              placeholder="Title"
+              className="w-full mt-2 bg-white/10 placeholder-white/70 border border-white/40 text-white p-2 rounded outline-none"
+              placeholder="Tiêu đề"
               name="title"
               required
               value={Data.title}
@@ -114,12 +106,12 @@ const UpdateBook = () => {
 
           <div className="mt-4">
             <label htmlFor="" className="text-white font-semibold">
-              Author of Book
+              Tác giả
             </label>
             <input
               type="text"
-              className="w-full mt-2 bg-transparent border-2  text-white p-2 outline-none"
-              placeholder="Author"
+              className="w-full mt-2 bg-white/10 placeholder-white/70 border border-white/40 text-white p-2 rounded outline-none"
+              placeholder="Tác giả"
               name="author"
               required
               value={Data.author}
@@ -130,12 +122,12 @@ const UpdateBook = () => {
           <div className="mt-4 flex gap-4">
             <div className="w-3/6">
               <label htmlFor="" className="text-white font-semibold">
-                Language
+                Ngôn ngữ
               </label>
               <input
                 type="text"
-                className="w-full mt-2 bg-transparent border-2  text-white p-2 outline-none"
-                placeholder="Language"
+                className="w-full mt-2 bg-white/10 placeholder-white/70 border border-white/40 text-white p-2 rounded outline-none"
+                placeholder="Ngôn ngữ"
                 name="language"
                 required
                 value={Data.language}
@@ -144,12 +136,12 @@ const UpdateBook = () => {
             </div>
             <div className="w-3/6">
               <label htmlFor="" className="text-white font-semibold">
-                Price
+                Giá
               </label>
               <input
                 type="text"
-                className="w-full mt-2 bg-transparent border-2  text-white p-2 outline-none"
-                placeholder="Price"
+                className="w-full mt-2 bg-white/10 placeholder-white/70 border border-white/40 text-white p-2 rounded outline-none"
+                placeholder="Giá"
                 name="price"
                 required
                 value={Data.price}
@@ -160,12 +152,12 @@ const UpdateBook = () => {
 
           <div className="mt-4">
             <label htmlFor="" className="text-white font-semibold">
-              Description
+              Mô tả
             </label>
             <input
               type="text"
-              className="w-full mt-2 bg-transparent border-2  text-white p-2 outline-none"
-              placeholder="Description"
+              className="w-full mt-2 bg-white/10 placeholder-white/70 border border-white/40 text-white p-2 rounded outline-none"
+              placeholder="Mô tả"
               name="desc"
               required
               value={Data.desc}
@@ -173,10 +165,10 @@ const UpdateBook = () => {
             />
           </div>
           <button
-            className="mt-4 px-3 bg-blue-500 text-white font-semibold py-2 rounded hover:bg-blue-600 transition-all duration-300"
+            className="mt-4 px-4 bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700 transition-all duration-300"
             onClick={submit}
           >
-            Update Book
+            Cập nhật sách
           </button>
         </div>
       </div>

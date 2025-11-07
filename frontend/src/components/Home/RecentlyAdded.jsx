@@ -6,13 +6,12 @@ import Newsletter from "../Newsletter/Newsletter";
 
 const RecentlyAdded = () => {
   const [Data, setData] = useState();
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
 
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await axios.get(
-          "https://bookcove.onrender.com/api/v1/get-recent-books"
-        );
+        const response = await axios.get(`${API_BASE}/api/v1/get-recent-books`);
         setData(response.data.data);
       } catch (error) {
         console.error("Failed to fetch books:", error);
@@ -25,7 +24,7 @@ const RecentlyAdded = () => {
     <div className="bg-gradient-to-b from-black via-[#0a192f] to-white/70 text-white py-10 px-4 sm:px-6 lg:px-10">
       {/* Heading */}
       <h4 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-center text-white mb-10">
-        Recently Added Books
+        Sách mới thêm gần đây
       </h4>
 
       {/* Loader */}

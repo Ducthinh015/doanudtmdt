@@ -7,12 +7,11 @@ import Navbar from "../components/Navbar/Navbar";
 const AllBooks = () => {
   const [Data, setData] = useState();
   const [searchTerm, setSearchTerm] = useState("");
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get(
-        "https://bookcove.onrender.com/api/v1/get-all-books"
-      );
+      const response = await axios.get(`${API_BASE}/api/v1/get-all-books`);
       setData(response.data.data);
     };
     fetch();
@@ -30,14 +29,14 @@ const AllBooks = () => {
       {/* Content */}
       <div className="px-12 py-8 flex-1 overflow-y-auto relative">
         <h4 className="text-3xl text-white uppercase text-center font-semibold">
-          All Books
+          Tất cả sách
         </h4>
 
         {/* Glassmorphic Search Input */}
         <div className="flex justify-center my-6">
           <input
             type="text"
-            placeholder="Search books..."
+            placeholder="Tìm kiếm sách..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             style={{
@@ -72,7 +71,7 @@ const AllBooks = () => {
             ))
           ) : (
             <p className="text-white text-center col-span-full">
-              No books found.
+              Không tìm thấy sách.
             </p>
           )}
         </div>

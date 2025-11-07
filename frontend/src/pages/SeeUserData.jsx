@@ -13,7 +13,7 @@ const SeeUserData = ({ userDivData, userDiv, setUserDiv }) => {
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-semibold uppercase ">
               {" "}
-              User Information
+              Thông tin người dùng
             </h1>
             <button onClick={() => setUserDiv("hidden")}>
               <CloseIcon />
@@ -21,7 +21,7 @@ const SeeUserData = ({ userDivData, userDiv, setUserDiv }) => {
           </div>
           <div className="mt-2">
             <label htmlFor="">
-              Username :{" "}
+              Tên đăng nhập :{" "}
               <span className="font-semibold">{userDivData.username}</span>
             </label>
           </div>
@@ -32,7 +32,7 @@ const SeeUserData = ({ userDivData, userDiv, setUserDiv }) => {
           </div>
           <div className="mt-4">
             <label htmlFor="">
-              Address :{" "}
+              Địa chỉ :{" "}
               <span className="font-semibold">{userDivData.address}</span>
             </label>
           </div>

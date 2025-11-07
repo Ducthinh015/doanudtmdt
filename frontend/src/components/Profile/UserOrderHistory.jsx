@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const UserOrderHistory = () => {
   const [orderHistory, setOrderHistory] = useState(null);
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
 
   const headers = {
     authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -14,10 +15,7 @@ const UserOrderHistory = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const res = await axios.get(
-          "https://bookcove.onrender.com/api/v1/get-order-history",
-          { headers }
-        );
+        const res = await axios.get(`${API_BASE}/api/v1/get-order-history`, { headers });
         setOrderHistory(res.data.data);
       } catch (err) {
         console.error("Error fetching order history:", err);
@@ -38,7 +36,7 @@ const UserOrderHistory = () => {
         <div className="h-[88vh] p-4 text-white">
           <div className="h-[100%] flex flex-col items-center justify-center">
             <h1 className="text-5xl font-semibold text-white mb-8 opacity-40">
-              No Order History
+              Chưa có đơn hàng
             </h1>
             <img src="" alt="img" />
           </div>
@@ -48,28 +46,16 @@ const UserOrderHistory = () => {
       {orderHistory && orderHistory.length > 0 && (
         <div className="min-h-[70vh] p-0 md:p-4 text-white">
           <h1 className="text-3xl md:text-5xl font-semibold text-white mb-8">
-            Your Order History
+            Lịch sử đơn hàng
           </h1>
 
           <div className="mt-4 bg-white/25 w-full rounded py-2 px-4 flex gap-2 font-bold flex-wrap">
-            <div className="w-[3%] min-w-[30px]">
-              <h1 className="text-center">Sr.</h1>
-            </div>
-            <div className="w-[22%] min-w-[100px]">
-              <h1>Books</h1>
-            </div>
-            <div className="w-[45%] min-w-[130px]">
-              <h1>Description</h1>
-            </div>
-            <div className="w-[4%] min-w-[70px]">
-              <h1>Price</h1>
-            </div>
-            <div className="w-[10%] min-w-[90px]">
-              <h1>Status</h1>
-            </div>
-            <div className="w-none md:w-[5%] hidden md:block min-w-[50px]">
-              <h1>Model</h1>
-            </div>
+            <div className="w-[3%] min-w-[30px]"><h1 className="text-center">STT</h1></div>
+            <div className="w-[22%] min-w-[100px]"><h1>Sách</h1></div>
+            <div className="w-[45%] min-w-[130px]"><h1>Mô tả</h1></div>
+            <div className="w-[4%] min-w-[70px]"><h1>Giá</h1></div>
+            <div className="w-[10%] min-w-[90px]"><h1>Trạng thái</h1></div>
+            <div className="w-none md:w-[5%] hidden md:block min-w-[50px]"><h1>Hình thức</h1></div>
           </div>
 
           {orderHistory.map((items, i) => (
@@ -90,23 +76,27 @@ const UserOrderHistory = () => {
                   }
                   className="hover:text-blue"
                 >
-                  {items.book?.title || "Unknown Book"}
+                  {items.book?.title || "Không xác định"}
                 </Link>
               </div>
 
               <h1 className="w-[45%] min-w-[130px]">
-                {items.book?.desc?.slice(0, 50) || "No description"}...
+                {items.book?.desc?.slice(0, 50) || "Không có mô tả"}...
               </h1>
               <h1 className="w-[4%] min-w-[70px]">
-                {items.book?.price || "N/A"}
+                {items.book?.price ? Number(items.book.price).toLocaleString("vi-VN") + " ₫" : "N/A"}
               </h1>
 
               <div className="w-[10%] min-w-[90px]">
                 <h1 className="font-semibold text-green">
-                  {items.status === "order placed" ? (
-                    <div className="text-yellow-50">{items.status}</div>
+                  {items.status === "Order Placed" || items.status === "Order placed" || items.status === "order placed" ? (
+                    <div className="text-yellow-50">Đã đặt hàng</div>
+                  ) : items.status === "Out for delivery" ? (
+                    <div className="text-blue-300">Đang giao</div>
+                  ) : items.status === "Delivered" ? (
+                    <div className="text-green-500">Đã giao</div>
                   ) : items.status === "Canceled" ? (
-                    <div className="text-red-500">{items.status}</div>
+                    <div className="text-red-500">Đã hủy</div>
                   ) : (
                     items.status
                   )}

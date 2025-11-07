@@ -10,6 +10,7 @@ const Cart = () => {
   const navigate = useNavigate();
   const [cart, setCart] = useState([]); // initial as empty array
   const [total, setTotal] = useState(0);
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
 
   const headers = {
     authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -19,10 +20,7 @@ const Cart = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const res = await axios.get(
-          "https://bookcove.onrender.com/api/v1/get-user-cart",
-          { headers }
-        );
+        const res = await axios.get(`${API_BASE}/api/v1/get-user-cart`, { headers });
         setCart(res.data.data);
       } catch (error) {
         console.error("Failed to fetch cart data", error);
@@ -34,7 +32,7 @@ const Cart = () => {
   //to del item
   const deleteItem = async (bookid) => {
     const res = await axios.put(
-      `https://bookcove.onrender.com/api/v1/remove-book-from-cart/${bookid}`,
+      `${API_BASE}/api/v1/remove-book-from-cart/${bookid}`,
       {},
       { headers }
     );
@@ -52,11 +50,11 @@ const Cart = () => {
     }
   }, [cart]);
 
-  //when order is placed
+  // Đặt hàng (COD)
   const PlaceOrder = async () => {
     try {
       const res = await axios.post(
-        `https://bookcove.onrender.com/api/v1/place-order`,
+        `${API_BASE}/api/v1/place-order`,
         { order: cart },
         { headers }
       );
@@ -65,6 +63,28 @@ const Cart = () => {
       navigate("/profile/orderHistory");
     } catch (err) {
       console.log(err);
+    }
+  };
+
+  // Thanh toán qua VNPAY
+  const payWithVnpay = async () => {
+    try {
+      const res = await axios.post(
+        `${API_BASE}/api/v1/vnpay/create-payment`,
+        {
+          amount: total,
+          orderInfo: `Thanh toan don hang ${cart.length} sach`,
+        },
+        { headers }
+      );
+      if (res.data?.paymentUrl) {
+        window.location.href = res.data.paymentUrl;
+      } else {
+        alert("Không tạo được liên kết thanh toán VNPAY");
+      }
+    } catch (e) {
+      console.error(e);
+      alert("Có lỗi khi khởi tạo thanh toán VNPAY");
     }
   };
 
@@ -81,18 +101,14 @@ const Cart = () => {
         {cart && cart.length === 0 && (
           <div className="h-full bg-transparent">
             <div className="h-full flex items-center justify-center flex-col">
-              <h1 className="text-5xl lg:text-6xl font-semibold text-white opacity-30">
-                Cart is empty
-              </h1>
+              <h1 className="text-5xl lg:text-6xl font-semibold text-white opacity-30">Giỏ hàng trống</h1>
             </div>
           </div>
         )}
 
         {cart && cart.length > 0 && (
           <>
-            <h1 className="text-5xl uppercase font-semibold text-white mb-8 flex items-center justify-center">
-              Your cart
-            </h1>
+            <h1 className="text-5xl uppercase font-semibold text-white mb-8 flex items-center justify-center">Giỏ hàng của bạn</h1>
             {cart.map((items, i) => (
               <div
                 className="w-full  border bg-white/30 backdrop-blur-sm my-4 rounded flex flex-col md:flex-row p-4 bg-darkbrown justify-between items-center"
@@ -107,15 +123,11 @@ const Cart = () => {
                   <h1 className="text-2xl text-white font-semibold text-start">
                     {items.title}
                   </h1>
-                  <p className="text-normal text-white mt-2">
-                    {items.desc?.slice(0, 100) ?? "No description available"}...
-                  </p>
+                  <p className="text-normal text-white mt-2">{items.desc?.slice(0, 100) ?? "Không có mô tả"}...</p>
                 </div>
 
                 <div className="flex flex-col items-end mt-4 md:mt-0">
-                  <h2 className="text-white font-semibold text-lg mb-2">
-                    ₹{items.price}
-                  </h2>
+                  <h2 className="text-white font-semibold text-lg mb-2">{items.price.toLocaleString("vi-VN")} ₫</h2>
                   <button
                     onClick={() => deleteItem(items._id)}
                     className="bg-transparent text-white px-3 py-1 rounded"
@@ -131,19 +143,25 @@ const Cart = () => {
         {cart && cart.length > 0 && (
           <div className="mt-4 w-full flex items-center justify-end">
             <div className="p-4 bg-transparent rounded">
-              <h1 className="text-3xl text-white font-semibold">
-                Total amount
-              </h1>
+              <h1 className="text-3xl text-white font-semibold">Tổng thanh toán</h1>
               <div className="mt-3 flex items-center justify-between text-xl text-white font-semibold">
-                <h2>{cart.length} books</h2>
-                <h2>{total} </h2>
+                <h2>{cart.length} sách</h2>
+                <h2>{total.toLocaleString("vi-VN")} ₫</h2>
               </div>
               <div className="w-[100%] mt-3">
                 <button
                   onClick={PlaceOrder}
                   className="bg-transparent border text-white px-4 py-2 flex justify-center w-full font-semibold hover:text-beige"
                 >
-                  Place your order
+                  Đặt hàng (COD)
+                </button>
+              </div>
+              <div className="w-[100%] mt-3">
+                <button
+                  onClick={payWithVnpay}
+                  className="bg-blue-500 border border-blue-500 text-white px-4 py-2 flex justify-center w-full font-semibold hover:bg-transparent hover:text-white"
+                >
+                  Thanh toán VNPAY
                 </button>
               </div>
             </div>

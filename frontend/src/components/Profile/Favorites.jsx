@@ -4,6 +4,7 @@ import BookCard from "../BookCard/BookCard";
 
 const Favorites = () => {
   const [favoriteBook, setFavoriteBook] = useState();
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
 
   const headers = {
     authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -12,10 +13,7 @@ const Favorites = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get(
-        "https://bookcove.onrender.com/api/v1/get-favourite-books",
-        { headers }
-      );
+      const response = await axios.get(`${API_BASE}/api/v1/get-favourite-books`, { headers });
       setFavoriteBook(response.data.data);
     };
     fetch();
@@ -25,7 +23,7 @@ const Favorites = () => {
     <>
       {favoriteBook?.length === 0 && (
         <div className="text-5xl font-semibold text-white flex items-center justify-center w-full min-h-[30vh] opacity-40 mb-10">
-          No Favourite Books
+          Chưa có sách yêu thích
         </div>
       )}
 

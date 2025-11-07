@@ -8,6 +8,7 @@ import CallMissedOutgoingIcon from "@mui/icons-material/CallMissedOutgoing";
 import SeeUserData from "./SeeUserData";
 
 const AllOrders = () => {
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
   const [options, setOptions] = useState(-1);
   const [allOrders, setAllOrders] = useState();
   const [values, setValues] = useState({ status: "" });
@@ -22,10 +23,7 @@ const AllOrders = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const res = await axios.get(
-          "https://bookcove.onrender.com/api/v1/get-all-orders",
-          { headers }
-        );
+        const res = await axios.get(`${API_BASE}/api/v1/get-all-orders`, { headers });
         setAllOrders(res.data.data);
       } catch (error) {
         console.error("Fetch error:", error);
@@ -42,7 +40,7 @@ const AllOrders = () => {
   const submitChanges = async (i) => {
     const id = allOrders[i]._id;
     const res = await axios.put(
-      `https://bookcove.onrender.com/api/v1/update-status/${id}`,
+      `${API_BASE}/api/v1/update-status/${id}`,
       values,
       { headers }
     );
@@ -64,7 +62,7 @@ const AllOrders = () => {
       {allOrders && allOrders.length > 0 && (
         <div className="min-h-screen p-4 text-white overflow-y-auto">
           <h1 className="text-3xl sm:text-2xl md:text-5xl font-semibold text-white mb-8">
-            All Orders
+            Tất cả đơn hàng
           </h1>
 
           {/* Scrollable table container */}
@@ -73,11 +71,11 @@ const AllOrders = () => {
               {/* Header */}
               <div className="table-header-group bg-white/30 font-bold border rounded">
                 <div className="table-row">
-                  <div className="table-cell p-2 text-center">Sr.</div>
-                  <div className="table-cell p-2">Books</div>
-                  <div className="table-cell p-2">Description</div>
-                  <div className="table-cell p-2">Price</div>
-                  <div className="table-cell p-2">Status</div>
+                  <div className="table-cell p-2 text-center">STT</div>
+                  <div className="table-cell p-2">Sách</div>
+                  <div className="table-cell p-2">Mô tả</div>
+                  <div className="table-cell p-2">Giá</div>
+                  <div className="table-cell p-2">Trạng thái</div>
                   <div className="table-cell p-2 text-center">
                     <PersonIcon />
                   </div>
@@ -101,14 +99,16 @@ const AllOrders = () => {
                           {items.book.title}
                         </Link>
                       ) : (
-                        <span className="text-red-500">Book not available</span>
+                        <span className="text-red-500">Sách không khả dụng</span>
                       )}
                     </div>
                     <div className="table-cell p-2">
-                      {items.book?.desc?.slice(0, 50) || "No description"}
+                      {items.book?.desc?.slice(0, 50) || "Không có mô tả"}
                     </div>
                     <div className="table-cell p-2">
-                      ₹{items.book?.price || "N/A"}
+                      {items.book?.price
+                        ? `${Number(items.book.price).toLocaleString('vi-VN')} ₫`
+                        : "N/A"}
                     </div>
                     <div className="table-cell p-2">
                       <button
@@ -116,11 +116,15 @@ const AllOrders = () => {
                         className="hover:scale-105 transition-all duration-300"
                       >
                         {items.status === "Order Placed" ? (
-                          <div className="text-yellow-300">{items.status}</div>
+                          <div className="text-yellow-300">Đã đặt hàng</div>
                         ) : items.status === "Canceled" ? (
-                          <div className="text-red-600">{items.status}</div>
+                          <div className="text-red-600">Đã hủy</div>
+                        ) : items.status === "Out for delivery" ? (
+                          <div className="text-blue-300">Đang giao</div>
+                        ) : items.status === "Delivered" ? (
+                          <div className="text-green-600">Đã giao</div>
                         ) : (
-                          <div className="text-green-600">{items.status}</div>
+                          <div className="text-white">{items.status}</div>
                         )}
                       </button>
                       <div
@@ -133,13 +137,13 @@ const AllOrders = () => {
                           className="bg-white/50 text-black border-none"
                         >
                           {[
-                            "Order placed",
-                            "Out for delivery",
-                            "Delivered",
-                            "Canceled",
-                          ].map((status, i) => (
-                            <option value={status} key={i}>
-                              {status}
+                            { v: "Order placed", l: "Đã đặt hàng" },
+                            { v: "Out for delivery", l: "Đang giao" },
+                            { v: "Delivered", l: "Đã giao" },
+                            { v: "Canceled", l: "Đã hủy" },
+                          ].map((s, i) => (
+                            <option value={s.v} key={i}>
+                              {s.l}
                             </option>
                           ))}
                         </select>

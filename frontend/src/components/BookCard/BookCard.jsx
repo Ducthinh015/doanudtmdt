@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const BookCard = ({ data, favourite }) => {
   const [loading, setLoading] = useState(false);
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
 
   // Headers for API request
   const headers = {
@@ -18,7 +19,7 @@ const BookCard = ({ data, favourite }) => {
     setLoading(true);
     try {
       const response = await axios.put(
-        `https://bookcove.onrender.com/api/v1/remove-book-from-favourite/${data._id}`,
+        `${API_BASE}/api/v1/remove-book-from-favourite/${data._id}`,
         {},
         { headers }
       );
@@ -49,9 +50,9 @@ const BookCard = ({ data, favourite }) => {
             {data.title}
           </h2>
           <p className="text-sm mt-1 text-white font-medium break-words line-clamp-1">
-            by {data.author}
+            Tác giả: {data.author}
           </p>
-          <p className="mt-1 text-white font-semibold text-sm">₹{data.price}</p>
+          <p className="mt-1 text-white font-semibold text-sm">{Number(data.price).toLocaleString("vi-VN")} ₫</p>
         </div>
       </Link>
 
@@ -66,7 +67,7 @@ const BookCard = ({ data, favourite }) => {
               : "bg-transparent border-white/40 hover:bg-white hover:text-black"
           }`}
         >
-          {loading ? "Removing..." : "Remove from favourites"}
+          {loading ? "Đang gỡ..." : "Gỡ khỏi yêu thích"}
         </button>
       )}
     </div>

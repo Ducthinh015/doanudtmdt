@@ -5,6 +5,7 @@ import Loader from "../Loader/Loader";
 const Settings = () => {
   const [value, setValue] = useState({ address: "" });
   const [profileData, setProfileData] = useState();
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
 
   const headers = {
     authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -12,10 +13,7 @@ const Settings = () => {
   };
   useEffect(() => {
     const fetch = async () => {
-      const response = await axios.get(
-        "https://bookcove.onrender.com/api/v1/get-user-information",
-        { headers }
-      );
+      const response = await axios.get(`${API_BASE}/api/v1/get-user-information`, { headers });
 
       setProfileData(response.data);
       setValue({ address: response.data.address });
@@ -24,16 +22,12 @@ const Settings = () => {
   }, []);
 
   const change = (e) => {
-    const { name, value } = e.target;
-    setValue({ ...value, [name]: value });
+    const { name, value: v } = e.target;
+    setValue((prev) => ({ ...prev, [name]: v }));
   };
 
   const submitAddress = async () => {
-    const response = await axios.put(
-      "https://bookcove.onrender.com/api/v1/update-address",
-      value,
-      { headers }
-    );
+    const response = await axios.put(`${API_BASE}/api/v1/update-address`, value, { headers });
     console.log(response);
     alert(response.data.message);
   };
@@ -48,7 +42,7 @@ const Settings = () => {
       {profileData && (
         <div className="w-full min-h-screen flex flex-col items-center pt-10 px-4">
           <h1 className="text-3xl md:text-5xl font-bold text-white uppercase mb-12 text-center">
-            Settings
+            Cài đặt
           </h1>
 
           <div className="w-full max-w-3xl border-2 bg-transparent shadow-xl rounded-2xl p-8 space-y-8">
@@ -56,7 +50,7 @@ const Settings = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <label className="drop-shadow-md font-semibold block text-white mb-2">
-                  Username
+                  Tên đăng nhập
                 </label>
                 <p className="p-3 backdrop-blur-sm rounded bg-transparent border-2 text-white font-semibold">
                   {profileData.username}
@@ -76,12 +70,12 @@ const Settings = () => {
             {/* Address */}
             <div>
               <label className="drop-shadow-md font-semibold text-white block mb-2">
-                Address
+                Địa chỉ
               </label>
               <textarea
                 className="w-full p-3  rounded bg-transparent border-2 text-white font-semibold backdrop-blur-sm"
                 rows={5}
-                placeholder="Address"
+                placeholder="Địa chỉ"
                 name="address"
                 value={value.address}
                 onChange={change}
@@ -91,10 +85,10 @@ const Settings = () => {
             {/* Update Button */}
             <div className="flex justify-end">
               <button
-                onSubmit={submitAddress}
+                onClick={submitAddress}
                 className="bg-yellow-700 text-white font-semibold px-6 py-2 rounded hover:bg-black transition duration-300"
               >
-                Update
+                Cập nhật
               </button>
             </div>
           </div>

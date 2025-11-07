@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 const AddBook = () => {
   const Navigate = useNavigate();
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
 
   const [Data, setData] = useState({
     url: "",
@@ -34,13 +35,9 @@ const AddBook = () => {
         !Data.desc ||
         !Data.language
       ) {
-        alert("All fields are required");
+        alert("Vui lòng điền đầy đủ thông tin");
       } else {
-        const res = await axios.post(
-          "https://bookcove.onrender.com/api/v1/add-book",
-          Data,
-          { headers }
-        );
+        const res = await axios.post(`${API_BASE}/api/v1/add-book`, Data, { headers });
         setData({
           url: "",
           title: "",
@@ -49,10 +46,10 @@ const AddBook = () => {
           desc: "",
           language: "",
         });
-        alert(res.data.message);
+        alert(res.data?.message || "Thêm sách thành công");
       }
     } catch (err) {
-      alert(err.response?.data?.message || "Something went wrong");
+      alert(err.response?.data?.message || "Đã xảy ra lỗi, vui lòng thử lại");
       Navigate("/all-books");
     }
   };
@@ -60,15 +57,15 @@ const AddBook = () => {
   return (
     <div className="w-full h-full overflow-auto p-4">
       <h1 className="text-3xl font-semibold text-white uppercase mb-6">
-        Add Book
+        Thêm sách
       </h1>
       <div className="bg-white/20 backdrop-blur-md p-6 rounded-2xl">
         <div className="mb-4">
-          <label className="text-white font-semibold">Image</label>
+          <label className="text-white font-semibold">Ảnh</label>
           <input
             type="text"
             className="w-full mt-2 bg-transparent border-2 text-white p-2 outline-none"
-            placeholder="Url"
+            placeholder="Đường dẫn ảnh"
             name="url"
             value={Data.url}
             onChange={change}
@@ -76,11 +73,11 @@ const AddBook = () => {
         </div>
 
         <div className="mb-4">
-          <label className="text-white font-semibold">Title of Book</label>
+          <label className="text-white font-semibold">Tiêu đề sách</label>
           <input
             type="text"
             className="w-full mt-2 bg-transparent border-2 text-white p-2 outline-none"
-            placeholder="Title"
+            placeholder="Tiêu đề"
             name="title"
             value={Data.title}
             onChange={change}
@@ -88,11 +85,11 @@ const AddBook = () => {
         </div>
 
         <div className="mb-4">
-          <label className="text-white font-semibold">Author of Book</label>
+          <label className="text-white font-semibold">Tác giả</label>
           <input
             type="text"
             className="w-full mt-2 bg-transparent border-2 text-white p-2 outline-none"
-            placeholder="Author"
+            placeholder="Tác giả"
             name="author"
             value={Data.author}
             onChange={change}
@@ -101,22 +98,22 @@ const AddBook = () => {
 
         <div className="mb-4 flex flex-col md:flex-row gap-4">
           <div className="w-full md:w-1/2">
-            <label className="text-white font-semibold">Language</label>
+            <label className="text-white font-semibold">Ngôn ngữ</label>
             <input
               type="text"
               className="w-full mt-2 bg-transparent border-2 text-white p-2 outline-none"
-              placeholder="Language"
+              placeholder="Ngôn ngữ"
               name="language"
               value={Data.language}
               onChange={change}
             />
           </div>
           <div className="w-full md:w-1/2">
-            <label className="text-white font-semibold">Price</label>
+            <label className="text-white font-semibold">Giá</label>
             <input
               type="text"
               className="w-full mt-2 bg-transparent border-2 text-white p-2 outline-none"
-              placeholder="Price"
+              placeholder="Giá"
               name="price"
               value={Data.price}
               onChange={change}
@@ -125,11 +122,11 @@ const AddBook = () => {
         </div>
 
         <div className="mb-4">
-          <label className="text-white font-semibold">Description</label>
+          <label className="text-white font-semibold">Mô tả</label>
           <input
             type="text"
             className="w-full mt-2 bg-transparent border-2 text-white p-2 outline-none"
-            placeholder="Description"
+            placeholder="Mô tả"
             name="desc"
             value={Data.desc}
             onChange={change}
@@ -140,7 +137,7 @@ const AddBook = () => {
           className="mt-4 px-4 bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700 transition-all duration-300"
           onClick={submit}
         >
-          Add Book
+          Thêm sách
         </button>
       </div>
     </div>

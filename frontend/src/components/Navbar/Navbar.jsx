@@ -5,11 +5,11 @@ import { useSelector } from "react-redux";
 
 const Navbar = () => {
   const links = [
-    { title: "Home", link: "/" },
-    { title: "All Books", link: "/all-books" },
-    { title: "Cart", link: "/cart" },
-    { title: "Profile", link: "/profile" },
-    { title: "Admin Profile", link: "/profile" },
+    { title: "Trang chủ", link: "/" },
+    { title: "Tất cả sách", link: "/all-books" },
+    { title: "Giỏ hàng", link: "/cart" },
+    { title: "Hồ sơ", link: "/profile" },
+    { title: "Quản trị", link: "/profile" },
   ];
 
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
@@ -42,7 +42,7 @@ const Navbar = () => {
           <div className="hidden md:flex gap-4">
             {links.map((item, i) => (
               <div key={i}>
-                {item.title === "Profile" || item.title === "Admin Profile" ? (
+                {item.title === "Hồ sơ" || item.title === "Quản trị" ? (
                   <Link
                     to={item.link}
                     className="hover:font-semibold transition-all duration-300"
@@ -68,14 +68,14 @@ const Navbar = () => {
                   to="/LogIn"
                   className="px-5 py-2 border border-beige font-semibold rounded hover:bg-white/30 hover:text-white transition-all duration-300"
                 >
-                  LogIn
+                  Đăng nhập
                 </Link>
                 <Link
                   to="/SignUp"
                   className="px-4 py-2 border bg-white/30
                    text-white font-semibold rounded hover:bg-transparent hover:text-white transition-all duration-300"
                 >
-                  SignUp
+                  Đăng ký
                 </Link>
               </>
             )}
@@ -120,14 +120,14 @@ const Navbar = () => {
               className="text-xl font-semibold px-8 mb-8 py-2 border border-blue-500 rounded text-white hover:bg-white hover:text-zinc-800 transition-all duration-300"
               onClick={() => setMobileNav("hidden")}
             >
-              LogIn
+              Đăng nhập
             </Link>
             <Link
               to="/SignUp"
               className="text-xl font-semibold px-8 mb-8 py-2 bg-blue-500 text-white rounded hover:bg-white hover:text-zinc-800 transition-all duration-300"
               onClick={() => setMobileNav("hidden")}
             >
-              SignUp
+              Đăng ký
             </Link>
           </>
         )}

@@ -9,6 +9,7 @@ import Navbar from "../components/Navbar/Navbar";
 
 const Profile = () => {
   const [profile, setProfile] = useState();
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
   const headers = {
     authorization: `Bearer ${localStorage.getItem("token")}`,
     id: localStorage.getItem("id"),
@@ -17,10 +18,7 @@ const Profile = () => {
   useEffect(() => {
     const fetch = async () => {
       try {
-        const response = await axios.get(
-          "https://bookcove.onrender.com/api/v1/get-user-information",
-          { headers }
-        );
+        const response = await axios.get(`${API_BASE}/api/v1/get-user-information`, { headers });
         setProfile(response.data);
       } catch (err) {
         console.error("Error fetching profile:", err);

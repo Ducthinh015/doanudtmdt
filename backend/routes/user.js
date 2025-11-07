@@ -88,7 +88,7 @@ router.post("/sign-in", async (req, res) => {
         role: existingUser.role,
       };
 
-      const token = jwt.sign({ authClaims }, "bookStore123", {
+      const token = jwt.sign({ authClaims }, process.env.JWT_SECRET || "bookStore123", {
         expiresIn: "30d",
       });
 
@@ -123,7 +123,7 @@ router.get("/get-user-information", authenticationToken, async (req, res) => {
 //update address
 router.put("/update-address", authenticationToken, async (req, res) => {
   try {
-    const { id } = req.user;
+    const { id } = req.user.authClaims;
     const { address } = req.body;
     await User.findByIdAndUpdate(id, { address: address });
     return res.status(200).json({ message: "Address update successfully" });

@@ -18,17 +18,16 @@ const Login = () => {
     setValues({ ...Values, [name]: value });
   };
 
+  const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://bookcove.onrender.com";
+
   const submit = async (e) => {
     e.preventDefault();
     console.log("submit");
     try {
       if (Values.username === "" || Values.password === "") {
-        alert("All fields are required");
+        alert("Vui lòng điền đầy đủ thông tin");
       } else {
-        const response = await axios.post(
-          "https://bookcove.onrender.com/api/v1/sign-in",
-          Values
-        );
+        const response = await axios.post(`${API_BASE}/api/v1/sign-in`, Values);
         dispatch(authActions.login());
         dispatch(authActions.changeRole(response.data.role));
 
@@ -46,8 +45,8 @@ const Login = () => {
       {/* Left Side - Image */}
       <div className="w-1/2 hidden md:flex items-center justify-center bg-gray-100">
         <img
-          src="../public/images/signup.visual.webp"
-          alt="Login Visual"
+          src="/images/signup.visual.webp"
+          alt="Hình minh hoạ đăng nhập"
           className="object-cover h-full w-full"
         />
       </div>
@@ -56,7 +55,7 @@ const Login = () => {
 
       <div className="w-full md:w-1/2 flex items-center justify-center bg-white p-8">
         <div className="max-w-md w-full space-y-6">
-          <h2 className="text-3xl font-bold text-gray-900">Welcome Back!</h2>
+          <h2 className="text-3xl font-bold text-gray-900">Chào mừng quay trở lại!</h2>
 
           <form className="space-y-4">
             <div>
@@ -64,12 +63,12 @@ const Login = () => {
                 htmlFor=""
                 className="block text-sm font-medium text-gray-700"
               >
-                Username
+                Tên đăng nhập
               </label>
               <input
                 type="text"
                 name="username"
-                placeholder="Username"
+                placeholder="Tên đăng nhập"
                 className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0a192f]"
                 value={Values.username}
                 onChange={change}
@@ -82,12 +81,12 @@ const Login = () => {
                 htmlFor=""
                 className="block text-sm font-medium text-gray-700"
               >
-                Password
+                Mật khẩu
               </label>
               <input
                 type="password"
                 name="password"
-                placeholder="Password"
+                placeholder="Mật khẩu"
                 className="w-full mt-1 p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0a192f]"
                 required
                 value={Values.password}
@@ -100,17 +99,17 @@ const Login = () => {
               type="submit"
               className="w-full py-2 px-4 bg-[#0a192f] text-white rounded-md hover:bg-white hover:text-[#0a192f] hover:border"
             >
-              Login
+              Đăng nhập
             </button>
           </form>
 
           <p className="text-sm text-gray-600">
-            Don’t have an account?{" "}
+            Chưa có tài khoản?{" "}
             <Link
               to="/signup"
               className=" text-[#0a192f] hover:border font-semibold"
             >
-              Sign Up
+              Đăng ký
             </Link>
           </p>
         </div>
