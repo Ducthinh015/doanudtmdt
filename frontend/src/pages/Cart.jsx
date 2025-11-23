@@ -66,25 +66,26 @@ const Cart = () => {
     }
   };
 
-  // Thanh toán qua VNPAY
-  const payWithVnpay = async () => {
+  const startPayment = async () => {
     try {
       const res = await axios.post(
         `${API_BASE}/api/v1/vnpay/create-payment`,
         {
           amount: total,
           orderInfo: `Thanh toan don hang ${cart.length} sach`,
+          items: cart.map((item) => ({ id: item._id, title: item.title, price: item.price })),
         },
         { headers }
       );
-      if (res.data?.paymentUrl) {
-        window.location.href = res.data.paymentUrl;
+      const redirectUrl = res.data?.paymentUrl;
+      if (redirectUrl) {
+        window.location.href = redirectUrl;
       } else {
-        alert("Không tạo được liên kết thanh toán VNPAY");
+        alert("Không tạo được liên kết thanh toán VNPay");
       }
-    } catch (e) {
-      console.error(e);
-      alert("Có lỗi khi khởi tạo thanh toán VNPAY");
+    } catch (error) {
+      console.error(error);
+      alert("Có lỗi khi khởi tạo thanh toán VNPay");
     }
   };
 
@@ -158,10 +159,10 @@ const Cart = () => {
               </div>
               <div className="w-[100%] mt-3">
                 <button
-                  onClick={payWithVnpay}
+                  onClick={startPayment}
                   className="bg-blue-500 border border-blue-500 text-white px-4 py-2 flex justify-center w-full font-semibold hover:bg-transparent hover:text-white"
                 >
-                  Thanh toán VNPAY
+                  Thanh toán VNPay
                 </button>
               </div>
             </div>

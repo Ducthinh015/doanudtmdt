@@ -35,12 +35,6 @@ const user = new mongoose.Schema(
         ref: "Book",
       },
     ],
-    cart: [
-      {
-        type: mongoose.Types.ObjectId,
-        ref: "Book",
-      },
-    ],
 
     orders: [
       {
@@ -48,6 +42,14 @@ const user = new mongoose.Schema(
         ref: "Order",
       },
     ],
+    resetPasswordToken: {
+      type: String,
+      default: null,
+    },
+    resetPasswordExpires: {
+      type: Date,
+      default: null,
+    },
   },
   { timestamps: true }
 );

@@ -1,3 +1,4 @@
+
 const express = require("express");
 const router = express.Router();
 const AnalyticsEvent = require("../models/analyticsEvent");
@@ -6,7 +7,7 @@ const Order = require("../models/orders");
 const User = require("../models/user");
 const { authenticationToken } = require("./userAuth");
 
-// Track analytics event (view, add_to_cart, favorite, purchase)
+
 router.post("/event", async (req, res) => {
   try {
     const { sessionId, type, bookId, meta } = req.body;
@@ -21,7 +22,6 @@ router.post("/event", async (req, res) => {
   }
 });
 
-// Get recently viewed books for user or session
 router.get("/recently-viewed", async (req, res) => {
   try {
     const { sessionId } = req.query;
@@ -42,7 +42,7 @@ router.get("/recently-viewed", async (req, res) => {
 
 module.exports = router;
 
-// summary of events by day (last 14 days)
+
 router.get("/summary", async (req, res) => {
   try {
     const since = new Date();
@@ -67,11 +67,10 @@ router.get("/summary", async (req, res) => {
   }
 });
 
-// top co-purchased pairs (simple aggregate over orders)
+
 router.get("/top-copurchased", async (req, res) => {
   try {
     const limit = Number(req.query.limit) || 20;
-    // Build per-order arrays (since current schema is one order per book, group by user+createdAt day window)
     const pipeline = [
       { $project: { user: 1, book: 1, ts: "$createdAt" } },
       {
@@ -126,7 +125,8 @@ router.get("/top-copurchased", async (req, res) => {
   }
 });
 
-// preview recommendations for a user (mix of co-purchase and content-based)
+// Gợi ý cho người dùng: ưu tiên tác giả/ngôn ngữ của các đơn gần đây, loại trừ sách đã mua
+// Query: ?userId=...
 router.get("/user-reco-preview", async (req, res) => {
   try {
     const { userId } = req.query;
@@ -150,7 +150,8 @@ router.get("/user-reco-preview", async (req, res) => {
   }
 });
 
-// preview recommendations for an item
+// Gợi ý cho một sách cụ thể: tìm sách khác cùng tác giả hoặc cùng ngôn ngữ
+// Query: ?bookId=...
 router.get("/item-reco", async (req, res) => {
   try {
     const { bookId } = req.query;

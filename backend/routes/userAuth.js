@@ -18,4 +18,13 @@ const authenticationToken = (req, res, next) => {
     next();
   });
 };
-module.exports = { authenticationToken };
+
+const authorizeAdmin = (req, res, next) => {
+  const role = req.user?.authClaims?.role;
+  if (role !== "admin") {
+    return res.status(403).json({ message: "Admin privileges required" });
+  }
+  next();
+};
+
+module.exports = { authenticationToken, authorizeAdmin };

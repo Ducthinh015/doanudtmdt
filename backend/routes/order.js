@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { authenticationToken } = require("./userAuth");
+const { authenticationToken, authorizeAdmin } = require("./userAuth");
 const Order = require("../models/orders");
 const Book = require("../models/books");
 const User = require("../models/user");
@@ -9,10 +9,15 @@ const User = require("../models/user");
 router.post("/place-order", authenticationToken, async (req, res) => {
   try {
     const { id } = req.headers;
-    const { order } = req.body;
+    const { order, status } = req.body;
+    const providedStatus = typeof status === "string" && status.trim() !== "" ? status.trim() : undefined;
     const bookIds = [];
     for (const orderData of order) {
-      const newOrder = new Order({ user: id, book: orderData._id });
+      const newOrder = new Order({
+        user: id,
+        book: orderData._id,
+        ...(providedStatus ? { status: providedStatus } : {}),
+      });
       const orderDataFronDb = await newOrder.save();
       //saving order in user model
       await User.findByIdAndUpdate(id, {
@@ -55,7 +60,7 @@ router.get("/get-order-history", authenticationToken, async (req, res) => {
 });
 
 //get all orders ---admin
-router.get("/get-all-orders", authenticationToken, async (req, res) => {
+router.get("/get-all-orders", authenticationToken, authorizeAdmin, async (req, res) => {
   try {
     const userData = await Order.find()
       .populate({ path: "book" })
@@ -75,7 +80,7 @@ router.get("/get-all-orders", authenticationToken, async (req, res) => {
 });
 
 // //update order --admin
-router.put("/update-status/:id", authenticationToken, async (req, res) => {
+router.put("/update-status/:id", authenticationToken, authorizeAdmin, async (req, res) => {
   try {
     const { id } = req.params;
     await Order.findByIdAndUpdate(id, { status: req.body.status });

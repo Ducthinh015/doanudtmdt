@@ -1,3 +1,4 @@
+
 const express = require("express");
 const router = express.Router();
 const crypto = require("crypto");
@@ -13,10 +14,11 @@ function sortObject(obj) {
 
 router.post("/vnpay/create-payment", async (req, res) => {
   try {
-    const tmnCode = process.env.VNP_TMN_CODE;
-    const secretKey = process.env.VNP_HASH_SECRET;
-    const vnpUrl = process.env.VNP_URL || "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-    const returnUrl = process.env.VNP_RETURN_URL || "http://localhost:5173/vnpay-return";
+    // Lấy cấu hình từ biến môi trường
+    const tmnCode = process.env.VNP_TMN_CODE; // Mã terminal từ VNPay
+    const secretKey = process.env.VNP_HASH_SECRET; // Khóa bí mật dùng để ký HMAC
+    const vnpUrl = process.env.VNP_URL || "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html"; // endpoint VNPay
+    const returnUrl = process.env.VNP_RETURN_URL || "http://localhost:5173/vnpay-return"; // URL frontend nhận kết quả
 
     if (!tmnCode || !secretKey) {
       return res.status(500).json({ message: "VNPAY is not configured" });
@@ -95,18 +97,3 @@ router.post("/vnpay/verify", async (req, res) => {
 });
 
 module.exports = router;
- 
-// Redirect endpoint for VNPAY return (for cases where VNP_RETURN_URL points to backend)
-router.get("/vnpay_return", async (req, res) => {
-  try {
-    const frontendBase = process.env.FRONTEND_URL || "http://localhost:5173";
-    const returnUrl = `${frontendBase.replace(/\/$/, "")}/vnpay-return`;
-    const queryString = Object.keys(req.query)
-      .map((k) => `${k}=${encodeURIComponent(req.query[k])}`)
-      .join("&");
-    const redirectTo = `${returnUrl}${queryString ? `?${queryString}` : ""}`;
-    return res.redirect(302, redirectTo);
-  } catch (e) {
-    return res.status(500).send("Cannot redirect to frontend return URL");
-  }
-});

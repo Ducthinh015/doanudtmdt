@@ -3,19 +3,27 @@ const router = express.Router();
 const User = require("../models/user");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const { authenticationToken } = require("./userAuth");
+const { authenticationToken, authorizeAdmin } = require("./userAuth");
 const Book = require("../models/books");
 
 //add book - admin
-router.post("/add-book", authenticationToken, async (req, res) => {
+router.post("/add-book", authenticationToken, authorizeAdmin, async (req, res) => {
   try {
-    const { id } = req.headers;
-    const user = await User.findById(id);
+    const book = new Book({
+      url: req.body.url,
+      title: req.body.title,
+      author: req.body.author,
+      price: req.body.price,
+      desc: req.body.desc,
+      language: req.body.language,
+    });
 
-    if (user.role !== "admin") {
-      return res
-        .status(500)
-        .json({ message: "Access denied, you are not the admin" });
+    await book.save();
+    res.status(200).json({ message: "Thêm sách thành công" });
+  } catch (error) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
 
 // related books by author or language
 router.get("/books/related", async (req, res) => {
@@ -34,26 +42,8 @@ router.get("/books/related", async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 });
-    }
-
-    const book = new Book({
-      url: req.body.url,
-      title: req.body.title,
-      author: req.body.author,
-      price: req.body.price,
-      desc: req.body.desc,
-      language: req.body.language,
-    });
-
-    await book.save();
-    res.status(200).json({ message: "Thêm sách thành công" });
-  } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
-  }
-});
-
 //update book
-router.put("/update-book", authenticationToken, async (req, res) => {
+router.put("/update-book", authenticationToken, authorizeAdmin, async (req, res) => {
   try {
     const { bookid } = req.headers;
     await Book.findByIdAndUpdate(bookid, {
@@ -71,7 +61,7 @@ router.put("/update-book", authenticationToken, async (req, res) => {
 });
 
 //delete book
-router.delete("/delete-book", authenticationToken, async (req, res) => {
+router.delete("/delete-book", authenticationToken, authorizeAdmin, async (req, res) => {
   try {
     const { bookid } = req.headers;
     await Book.findByIdAndDelete(bookid);

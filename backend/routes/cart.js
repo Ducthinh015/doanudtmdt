@@ -1,39 +1,35 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models/user");
 const { authenticationToken } = require("./userAuth");
+const Cart = require("../models/cart");
+const Book = require("../models/books");
 
 //put book to cart
 router.put("/add-to-cart", authenticationToken, async (req, res) => {
-  // console.log("headers from front: " + JSON.stringify(headers));
-
   try {
     const { bookid } = req.headers;
-    const id = req.user?.authClaims?.id || req.headers.id;
-    const userData = await User.findById(id).populate({
-      path: "cart",
-      model: "Book", // replace "Book" with your actual book model name if different
-    });
+    const userId = req.user?.authClaims?.id || req.headers.id;
 
-    if (!userData) {
-      return res.status(404).json({ message: "User not found" });
+    if (!bookid) {
+      return res.status(400).json({ message: "Book ID is required" });
     }
 
-    const bookinCart = userData.cart
-      .map((b) => (typeof b === "string" ? b : b._id?.toString()))
-      .includes(bookid?.toString());
-    if (bookinCart) {
-      return res.status(200).json({ message: " Book is already in cart" });
+    const bookExists = await Book.exists({ _id: bookid });
+    if (!bookExists) {
+      return res.status(404).json({ message: "Book not found" });
     }
-    await User.findByIdAndUpdate(id, { $push: { cart: bookid } });
-    console.log("User cart after update:", userData.cart);
+
+    const existing = await Cart.findOne({ user: userId, book: bookid });
+    if (existing) {
+      return res.status(200).json({ message: "Book is already in cart" });
+    }
+
+    await Cart.create({ user: userId, book: bookid });
 
     return res.status(200).json({ message: "Book added to cart" });
   } catch (error) {
-    console.error("Error in /add-book-to-cart:", error);
-    res
-      .status(500)
-      .json({ message: "Internal server error", error: error.message });
+    console.error("Error in /add-to-cart:", error);
+    res.status(500).json({ message: "Internal server error", error: error.message });
   }
 });
 
@@ -44,17 +40,19 @@ router.put(
   async (req, res) => {
     try {
       const { bookid } = req.params;
-      const id = req.user?.authClaims?.id || req.headers.id;
-      const userData = await User.findById(id);
-      if (!userData) {
-        return res.status(404).json({ message: "User not found" });
+      const userId = req.user?.authClaims?.id || req.headers.id;
+
+      const removed = await Cart.findOneAndDelete({ user: userId, book: bookid });
+      if (!removed) {
+        return res.status(404).json({ message: "Book not found in cart" });
       }
-      await User.findByIdAndUpdate(id, { $pull: { cart: bookid } });
+
       return res.json({
         status: "Success",
         message: "Book removed from cart",
       });
     } catch (error) {
+      console.error("Error removing book from cart:", error);
       res.status(500).json({ message: "Internal server error" });
     }
   }
@@ -64,17 +62,27 @@ router.put(
 router.get("/get-user-cart", authenticationToken, async (req, res) => {
   try {
     const id = req.user?.authClaims?.id || req.headers.id;
-    const userData = await User.findById(id).populate("cart");
-    if (!userData) {
-      return res.status(404).json({ message: "User not found" });
-    }
-    const cart = userData.cart.reverse();
+    const cartDocs = await Cart.find({ user: id })
+      .populate("book")
+      .sort({ createdAt: -1 });
+
+    const cart = cartDocs
+      .filter((doc) => doc.book)
+      .map((doc) => {
+        const book = doc.book.toObject();
+        return {
+          ...book,
+          cartItemId: doc._id,
+          quantity: doc.quantity,
+        };
+      });
+
     return res.json({
       status: "Success",
       data: cart,
     });
   } catch (error) {
-    console.log(error);
+    console.error("Error fetching user cart:", error);
     res.status(500).json({ message: "Internal server error" });
   }
 });

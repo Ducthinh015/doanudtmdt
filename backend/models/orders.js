@@ -13,7 +13,7 @@ const orderSchema = new mongoose.Schema(
     status: {
       type: String,
       default: "Order Placed",
-      enum: ["Order Placed", "Out for delivery", "Delivered", "Canceled"], // Fixed the enum
+      enum: ["Order Placed", "Paid", "Out for delivery", "Delivered", "Canceled"],
     },
   },
   { timestamps: true }

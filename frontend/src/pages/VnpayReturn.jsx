@@ -44,7 +44,7 @@ const VnpayReturn = () => {
           // place order
           const orderRes = await axios.post(
             `${API_BASE}/api/v1/place-order`,
-            { order: cart },
+            { order: cart, status: "Paid" },
             { headers }
           );
 

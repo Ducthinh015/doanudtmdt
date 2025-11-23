@@ -18,8 +18,10 @@ import Settings from "./components/Profile/Settings";
 import AddBook from "./pages/AddBook";
 import UpdateBook from "./pages/UpdateBook";
 import VnpayReturn from "./pages/VnpayReturn";
-import Chatbot from "./components/Chatbot/Chatbot";
 import AdminAnalytics from "./pages/Admin/Analytics";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
+import PaymentReturn from "./pages/PaymentReturn";
 
 function App() {
   const dispatch = useDispatch();
@@ -57,17 +59,15 @@ function App() {
 
         <Route path="/LogIn" element={<LogIn />} />
         <Route path="/SignUp" element={<SignUp />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
         <Route path="/view-book-details/:id" element={<ViewBookDetails />} />
         <Route path="/vnpay-return" element={<VnpayReturn />} />
+        <Route path="/payment-return" element={<PaymentReturn />} />
         {role === "admin" && (
           <Route path="/profile/admin/analytics" element={<AdminAnalytics />} />
         )}
       </Routes>
-      {role === "user" && (
-        <div className="fixed bottom-4 right-4 z-50">
-          <Chatbot />
-        </div>
-      )}
     </>
   );
 }

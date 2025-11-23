@@ -115,10 +115,12 @@ const AllOrders = () => {
                         onClick={() => setOption(i)}
                         className="hover:scale-105 transition-all duration-300"
                       >
-                        {items.status === "Order Placed" ? (
+                        {items.status === "Order Placed" || items.status === "Order placed" || items.status === "order placed" ? (
                           <div className="text-yellow-300">Đã đặt hàng</div>
                         ) : items.status === "Canceled" ? (
                           <div className="text-red-600">Đã hủy</div>
+                        ) : items.status === "Paid" ? (
+                          <div className="text-emerald-300">Đã thanh toán</div>
                         ) : items.status === "Out for delivery" ? (
                           <div className="text-blue-300">Đang giao</div>
                         ) : items.status === "Delivered" ? (
@@ -137,7 +139,8 @@ const AllOrders = () => {
                           className="bg-white/50 text-black border-none"
                         >
                           {[
-                            { v: "Order placed", l: "Đã đặt hàng" },
+                            { v: "Order Placed", l: "Đã đặt hàng" },
+                            { v: "Paid", l: "Đã thanh toán" },
                             { v: "Out for delivery", l: "Đang giao" },
                             { v: "Delivered", l: "Đã giao" },
                             { v: "Canceled", l: "Đã hủy" },

@@ -9,4 +9,4 @@ const conn = async () => {
   }
 };
 
-conn(); //calling the async function, to connect to MongoDB
+conn();

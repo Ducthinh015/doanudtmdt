@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+
 const analyticsEventSchema = new mongoose.Schema(
   {
     userId: { type: mongoose.Schema.Types.ObjectId, ref: "user", required: false },
