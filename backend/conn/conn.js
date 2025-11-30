@@ -1,12 +1,19 @@
 const mongoose = require("mongoose");
 
-const conn = async () => {
-  try {
-    await mongoose.connect(`${process.env.MONGO_URI}`);
-    console.log("connected to database");
-  } catch (error) {
-    console.log(error);
-  }
-};
+const MONGO_URI = process.env.MONGO_URI;
 
-conn();
+if (!MONGO_URI) {
+  console.error("❌ MONGO_URI is missing in Render Environment Variables");
+  process.exit(1);
+}
+
+mongoose
+  .connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("✅ MongoDB Connected"))
+  .catch((err) => {
+    console.error("❌ MongoDB Connection Failed:", err.message);
+    process.exit(1);
+  });
