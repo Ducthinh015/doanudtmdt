@@ -1,0 +1,432 @@
+[{
+  "_id": {
+    "$oid": "690db674d10e236ad7ac959c"
+  },
+  "userId": null,
+  "sessionId": "09dd2922-ffcc-463b-bb9b-2e34b25396c8",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db0659e74be06efcf7595"
+  },
+  "createdAt": {
+    "$date": "2025-11-07T09:05:56.172Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:05:56.172Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690db674d10e236ad7ac959e"
+  },
+  "userId": null,
+  "sessionId": "09dd2922-ffcc-463b-bb9b-2e34b25396c8",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db0659e74be06efcf7595"
+  },
+  "createdAt": {
+    "$date": "2025-11-07T09:05:56.185Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:05:56.185Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690db755d10e236ad7ac95c0"
+  },
+  "userId": null,
+  "sessionId": "9ba7ea26-56f9-40f0-9893-aae1ab1769a4",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db74fd10e236ad7ac95ba"
+  },
+  "createdAt": {
+    "$date": "2025-11-07T09:09:41.601Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:09:41.601Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690db755d10e236ad7ac95c3"
+  },
+  "userId": null,
+  "sessionId": "9ba7ea26-56f9-40f0-9893-aae1ab1769a4",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db74fd10e236ad7ac95ba"
+  },
+  "createdAt": {
+    "$date": "2025-11-07T09:09:41.611Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:09:41.611Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690db870d10e236ad7ac95ec"
+  },
+  "userId": null,
+  "sessionId": "09dd2922-ffcc-463b-bb9b-2e34b25396c8",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db0659e74be06efcf7591"
+  },
+  "createdAt": {
+    "$date": "2025-11-07T09:14:24.579Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:14:24.579Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690db870d10e236ad7ac95ee"
+  },
+  "userId": null,
+  "sessionId": "09dd2922-ffcc-463b-bb9b-2e34b25396c8",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db0659e74be06efcf7591"
+  },
+  "createdAt": {
+    "$date": "2025-11-07T09:14:24.585Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:14:24.585Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690db872d10e236ad7ac95f4"
+  },
+  "userId": null,
+  "sessionId": "09dd2922-ffcc-463b-bb9b-2e34b25396c8",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db0659e74be06efcf7592"
+  },
+  "createdAt": {
+    "$date": "2025-11-07T09:14:26.380Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:14:26.380Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690db872d10e236ad7ac95f6"
+  },
+  "userId": null,
+  "sessionId": "09dd2922-ffcc-463b-bb9b-2e34b25396c8",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db0659e74be06efcf7592"
+  },
+  "createdAt": {
+    "$date": "2025-11-07T09:14:26.385Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:14:26.385Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690db879d10e236ad7ac9604"
+  },
+  "userId": null,
+  "sessionId": "9ba7ea26-56f9-40f0-9893-aae1ab1769a4",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db0659e74be06efcf7593"
+  },
+  "createdAt": {
+    "$date": "2025-11-07T09:14:33.672Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:14:33.672Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690db879d10e236ad7ac9607"
+  },
+  "userId": null,
+  "sessionId": "9ba7ea26-56f9-40f0-9893-aae1ab1769a4",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db0659e74be06efcf7593"
+  },
+  "createdAt": {
+    "$date": "2025-11-07T09:14:33.679Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:14:33.679Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690db974d10e236ad7ac9614"
+  },
+  "userId": null,
+  "sessionId": "09dd2922-ffcc-463b-bb9b-2e34b25396c8",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db95f672e96a9bbf914d8"
+  },
+  "createdAt": {
+    "$date": "2025-11-07T09:18:44.722Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:44.722Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690db974d10e236ad7ac9616"
+  },
+  "userId": null,
+  "sessionId": "09dd2922-ffcc-463b-bb9b-2e34b25396c8",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db95f672e96a9bbf914d8"
+  },
+  "createdAt": {
+    "$date": "2025-11-07T09:18:44.730Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:44.730Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69142097841a1c35a0d59392"
+  },
+  "userId": null,
+  "sessionId": "9ba7ea26-56f9-40f0-9893-aae1ab1769a4",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db95f672e96a9bbf914cd"
+  },
+  "createdAt": {
+    "$date": "2025-11-12T05:52:23.782Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-12T05:52:23.782Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69142097841a1c35a0d59395"
+  },
+  "userId": null,
+  "sessionId": "9ba7ea26-56f9-40f0-9893-aae1ab1769a4",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db95f672e96a9bbf914cd"
+  },
+  "createdAt": {
+    "$date": "2025-11-12T05:52:23.793Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-12T05:52:23.793Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "691d785d1db2f6e75eeb3a90"
+  },
+  "userId": null,
+  "sessionId": "9ba7ea26-56f9-40f0-9893-aae1ab1769a4",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db95f672e96a9bbf914cd"
+  },
+  "createdAt": {
+    "$date": "2025-11-19T07:57:17.305Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-19T07:57:17.305Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "691d785d1db2f6e75eeb3a92"
+  },
+  "userId": null,
+  "sessionId": "9ba7ea26-56f9-40f0-9893-aae1ab1769a4",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db95f672e96a9bbf914cd"
+  },
+  "createdAt": {
+    "$date": "2025-11-19T07:57:17.323Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-19T07:57:17.323Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "691d78681db2f6e75eeb3a97"
+  },
+  "userId": null,
+  "sessionId": "9ba7ea26-56f9-40f0-9893-aae1ab1769a4",
+  "type": "add_to_cart",
+  "bookId": {
+    "$oid": "690db95f672e96a9bbf914cd"
+  },
+  "createdAt": {
+    "$date": "2025-11-19T07:57:28.284Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-19T07:57:28.284Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "691d78891db2f6e75eeb3a9b"
+  },
+  "userId": null,
+  "sessionId": "9ba7ea26-56f9-40f0-9893-aae1ab1769a4",
+  "type": "favorite",
+  "bookId": {
+    "$oid": "690db95f672e96a9bbf914cd"
+  },
+  "createdAt": {
+    "$date": "2025-11-19T07:58:01.180Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-19T07:58:01.180Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692291f75eed62edfb393f85"
+  },
+  "userId": null,
+  "sessionId": "34eeb64b-7809-4981-b04b-bbfb04fc97b8",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db95f672e96a9bbf914cd"
+  },
+  "createdAt": {
+    "$date": "2025-11-23T04:47:51.641Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T04:47:51.641Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692291f75eed62edfb393f88"
+  },
+  "userId": null,
+  "sessionId": "34eeb64b-7809-4981-b04b-bbfb04fc97b8",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db95f672e96a9bbf914cd"
+  },
+  "createdAt": {
+    "$date": "2025-11-23T04:47:51.662Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T04:47:51.662Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692291fb5eed62edfb393f92"
+  },
+  "userId": null,
+  "sessionId": "34eeb64b-7809-4981-b04b-bbfb04fc97b8",
+  "type": "add_to_cart",
+  "bookId": {
+    "$oid": "690db95f672e96a9bbf914cd"
+  },
+  "createdAt": {
+    "$date": "2025-11-23T04:47:55.332Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T04:47:55.332Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692293b9272a7bb04f1a4792"
+  },
+  "userId": null,
+  "sessionId": "34eeb64b-7809-4981-b04b-bbfb04fc97b8",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db95f672e96a9bbf914ce"
+  },
+  "createdAt": {
+    "$date": "2025-11-23T04:55:21.226Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T04:55:21.226Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692293b9272a7bb04f1a4795"
+  },
+  "userId": null,
+  "sessionId": "34eeb64b-7809-4981-b04b-bbfb04fc97b8",
+  "type": "view",
+  "bookId": {
+    "$oid": "690db95f672e96a9bbf914ce"
+  },
+  "createdAt": {
+    "$date": "2025-11-23T04:55:21.238Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T04:55:21.238Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692293bb272a7bb04f1a479e"
+  },
+  "userId": null,
+  "sessionId": "34eeb64b-7809-4981-b04b-bbfb04fc97b8",
+  "type": "add_to_cart",
+  "bookId": {
+    "$oid": "690db95f672e96a9bbf914ce"
+  },
+  "createdAt": {
+    "$date": "2025-11-23T04:55:23.529Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T04:55:23.529Z"
+  },
+  "__v": 0
+}]

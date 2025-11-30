@@ -12,7 +12,7 @@ const Favourite = require("./routes/favourite");
 const Cart = require("./routes/cart");
 const Order = require("./routes/order");
 const Analytics = require("./routes/analytics");
-const Vnpay = require("./routes/vnpay");
+const Sepay = require("./routes/sepay");
 
 app.use(express.json());
 app.use(
@@ -20,6 +20,7 @@ app.use(
     origin: [
       "https://bookcove-book-store.netlify.app",
       "http://localhost:5173",
+      "https://doanudtmdt-bcci.onrender.com",
       "https://cf0380bdfc45ce.lhr.life",
     ],
     credentials: true,
@@ -32,26 +33,11 @@ app.use("/api/v1", Books);
 app.use("/api/v1", Favourite);
 app.use("/api/v1", Cart);
 app.use("/api/v1", Order);
-app.use("/api/v1", Vnpay);
+app.use("/api/v1", Sepay);
 app.use("/api/v1/analytics", Analytics);
 
 app.get("/", (req, res) => {
   res.send("hello from backend");
-});
-
-// Support VNP_RETURN_URL pointing to backend path without /api/v1 prefix
-app.get("/api/vnpay_return", (req, res) => {
-  try {
-    const frontendBase = process.env.FRONTEND_URL || "http://localhost:5173";
-    const returnUrl = `${frontendBase.replace(/\/$/, "")}/vnpay-return`;
-    const queryString = Object.keys(req.query)
-      .map((k) => `${k}=${encodeURIComponent(req.query[k])}`)
-      .join("&");
-    const redirectTo = `${returnUrl}${queryString ? `?${queryString}` : ""}`;
-    return res.redirect(302, redirectTo);
-  } catch (e) {
-    return res.status(500).send("Cannot redirect to frontend return URL");
-  }
 });
 
 const server = http.createServer(app);

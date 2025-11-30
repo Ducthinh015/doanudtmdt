@@ -69,23 +69,39 @@ const Cart = () => {
   const startPayment = async () => {
     try {
       const res = await axios.post(
-        `${API_BASE}/api/v1/vnpay/create-payment`,
+        `${API_BASE}/api/v1/sepay/create-payment`,
         {
           amount: total,
-          orderInfo: `Thanh toan don hang ${cart.length} sach`,
+          order_invoice_number: `ORDER_${Date.now()}`,
+          order_description: `Thanh toán ${cart.length} sách`,
           items: cart.map((item) => ({ id: item._id, title: item.title, price: item.price })),
         },
         { headers }
       );
-      const redirectUrl = res.data?.paymentUrl;
-      if (redirectUrl) {
-        window.location.href = redirectUrl;
-      } else {
-        alert("Không tạo được liên kết thanh toán VNPay");
+
+      const checkoutUrl = res.data?.checkoutUrl;
+      const fields = res.data?.fields;
+      if (!checkoutUrl || !fields) {
+        alert("Không tạo được phiên thanh toán SePay");
+        return;
       }
+
+      const form = document.createElement("form");
+      form.method = "POST";
+      form.action = checkoutUrl;
+      Object.entries(fields).forEach(([key, value]) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = value;
+        form.appendChild(input);
+      });
+      document.body.appendChild(form);
+      form.submit();
+      form.remove();
     } catch (error) {
       console.error(error);
-      alert("Có lỗi khi khởi tạo thanh toán VNPay");
+      alert("Có lỗi khi khởi tạo thanh toán SePay");
     }
   };
 
@@ -162,7 +178,7 @@ const Cart = () => {
                   onClick={startPayment}
                   className="bg-blue-500 border border-blue-500 text-white px-4 py-2 flex justify-center w-full font-semibold hover:bg-transparent hover:text-white"
                 >
-                  Thanh toán VNPay
+                  Thanh toán SePay
                 </button>
               </div>
             </div>

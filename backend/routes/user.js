@@ -153,7 +153,7 @@ router.post("/forgot-password", async (req, res) => {
     user.resetPasswordExpires = new Date(expires);
     await user.save();
 
-    const frontendBase = process.env.FRONTEND_URL || "http://localhost:5173";
+    const frontendBase = process.env.FRONTEND_URL || "https://doanudtmdt-bcci.onrender.com";
     const resetLink = `${frontendBase.replace(/\/$/, "")}/reset-password?token=${rawToken}&email=${encodeURIComponent(email)}`;
 
     // TODO: integrate with real email service

@@ -1,0 +1,828 @@
+[{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914b4"
+  },
+  "url": "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=640",
+  "title": "Lập Trình Java",
+  "author": "Nguyễn Minh An",
+  "price": 120000,
+  "desc": "Giới thiệu các khái niệm và cú pháp cơ bản trong JavaScript cho người mới bắt đầu.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.793Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.793Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914b5"
+  },
+  "url": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=640",
+  "title": "React Từ Cơ Bản Đến Nâng Cao",
+  "author": "Trần Thu Hà",
+  "price": 180000,
+  "desc": "Xây dựng ứng dụng web hiện đại với React, hooks, router và quản lý state.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914b6"
+  },
+  "url": "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=640",
+  "title": "Node.js Thực Chiến",
+  "author": "Lê Quang Huy",
+  "price": 160000,
+  "desc": "Phát triển API và dịch vụ backend hiệu năng cao với Node.js và Express.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914b7"
+  },
+  "url": "https://images.unsplash.com/photo-1463320726281-696a485928c7?q=80&w=640",
+  "title": "MongoDB Cho Người Mới",
+  "author": "Phạm Thanh Bình",
+  "price": 135000,
+  "desc": "Làm chủ cơ sở dữ liệu NoSQL MongoDB với các thao tác CRUD và mô hình dữ liệu.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914b8"
+  },
+  "url": "https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=640",
+  "title": "Thiết Kế RESTful API",
+  "author": "Vũ Mai Anh",
+  "price": 150000,
+  "desc": "Nguyên tắc thiết kế, bảo mật và tài liệu hóa API theo chuẩn REST.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914b9"
+  },
+  "url": "https://images.unsplash.com/photo-1528207776546-365bb710ee93?q=80&w=640",
+  "title": "TypeScript Dễ Dàng",
+  "author": "Đỗ Nhật Minh",
+  "price": 170000,
+  "desc": "Tăng chất lượng mã nguồn JavaScript với TypeScript và hệ thống kiểu tĩnh.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914ba"
+  },
+  "url": "https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=640",
+  "title": "Kỹ Thuật Redux",
+  "author": "Ngô Thùy Dương",
+  "price": 140000,
+  "desc": "Quản lý state quy mô lớn trong ứng dụng React với Redux Toolkit.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914bb"
+  },
+  "url": "https://images.unsplash.com/photo-1535905496755-26ae35d0ae54?q=80&w=640",
+  "title": "CSS Hiện Đại Với Tailwind",
+  "author": "Phan Hữu Trí",
+  "price": 110000,
+  "desc": "Tăng tốc phát triển giao diện với utility-first CSS framework Tailwind.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914bc"
+  },
+  "url": "https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=640",
+  "title": "Express.js Ứng Dụng Thực Tế",
+  "author": "Bùi Hải Nam",
+  "price": 155000,
+  "desc": "Xây dựng web server, middleware và router với Express.js.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914bd"
+  },
+  "url": "https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=640",
+  "title": "Hệ Thống Thanh Toán VNPAY",
+  "author": "Trịnh Phúc Long",
+  "price": 190000,
+  "desc": "Tích hợp cổng thanh toán VNPAY cho ứng dụng web theo quy trình chuẩn.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914be"
+  },
+  "url": "https://images.unsplash.com/photo-1517433456452-f9633a875f6f?q=80&w=640",
+  "title": "Python Dành Cho Người Mới",
+  "author": "Lê Minh Khoa",
+  "price": 130000,
+  "desc": "Khởi đầu với ngôn ngữ lập trình Python, học biến, hàm, module và ứng dụng thực tế.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914bf"
+  },
+  "url": "https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=640",
+  "title": "Machine Learning Cơ Bản",
+  "author": "Nguyễn Thị Lan",
+  "price": 220000,
+  "desc": "Giới thiệu các thuật toán ML như Linear Regression, Decision Tree, và triển khai với Python.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914c0"
+  },
+  "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=640",
+  "title": "Deep Learning & TensorFlow",
+  "author": "Hà Quốc Nam",
+  "price": 240000,
+  "desc": "Xây dựng mạng neural, xử lý ảnh và dữ liệu lớn với TensorFlow và Keras.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914c1"
+  },
+  "url": "https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=640",
+  "title": "Học Data Science Với Python",
+  "author": "Phạm Thảo Vy",
+  "price": 210000,
+  "desc": "Phân tích dữ liệu, trực quan hóa, sử dụng Pandas, NumPy và thực hành dự án thực tế.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914c2"
+  },
+  "url": "https://images.unsplash.com/photo-1532619187605-4b89ab1d4f3e?q=80&w=640",
+  "title": "DevOps For Web Developers",
+  "author": "Hoàng Đức Anh",
+  "price": 195000,
+  "desc": "Triển khai CI/CD, Docker, Kubernetes cho ứng dụng web hiện đại.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914c3"
+  },
+  "url": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=640",
+  "title": "Kubernetes & Microservices",
+  "author": "Võ Ngọc Thắng",
+  "price": 230000,
+  "desc": "Thiết kế kiến trúc microservices và triển khai với Kubernetes, dịch vụ nhìn nhận scale-up.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914c4"
+  },
+  "url": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=640",
+  "title": "GraphQL Cho Frontend",
+  "author": "Lê Hữu Nam",
+  "price": 175000,
+  "desc": "Tích hợp GraphQL vào ứng dụng React/Next.js, sử dụng Apollo Client.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914c5"
+  },
+  "url": "https://images.unsplash.com/photo-1482686115713-0c797f7e39ba?q=80&w=640",
+  "title": "Sách Thiết Kế UI/UX Hiện Đại",
+  "author": "Trần Ngọc Hiếu",
+  "price": 145000,
+  "desc": "Nguyên tắc thiết kế giao diện người dùng, trải nghiệm người dùng và case study thực tế.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914c6"
+  },
+  "url": "https://images.unsplash.com/photo-1504384308090-63de5c6a6f30?q=80&w=640",
+  "title": "Lập Trình Game Với Unity",
+  "author": "Phạm Văn Hùng",
+  "price": 200000,
+  "desc": "Tạo game 2D/3D với Unity, C# và xuất bản cho mobile và desktop.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914c7"
+  },
+  "url": "https://images.unsplash.com/photo-1517430816045-df4b7de0a16c?q=80&w=640",
+  "title": "Blockchain & Smart Contract",
+  "author": "Nguyễn Hoàng Phúc",
+  "price": 250000,
+  "desc": "Khám phá blockchain, viết smart contract với Solidity và triển khai DApp.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914c8"
+  },
+  "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=640",
+  "title": "AI Ứng Dụng Trong Doanh Nghiệp",
+  "author": "Đặng Thùy Linh",
+  "price": 260000,
+  "desc": "Học cách ứng dụng AI, khai thác dữ liệu lớn, phân tích hành vi và tự động hóa trong doanh nghiệp.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914c9"
+  },
+  "url": "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=640",
+  "title": "Nhập Môn Internet of Things",
+  "author": "Trần Đức Minh",
+  "price": 155000,
+  "desc": "Khái niệm IoT, kết nối cảm biến, MQTT và phát triển ứng dụng IoT thực tế.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.794Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914ca"
+  },
+  "url": "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=640",
+  "title": "An Ninh Mạng Cho Web Developer",
+  "author": "Vũ Quyết Tiến",
+  "price": 165000,
+  "desc": "Các lỗ hổng OWASP, phòng chống XSS/CSRF và bảo mật hệ thống web.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914cb"
+  },
+  "url": "https://images.unsplash.com/photo-1518773553398-65094b1f1672?q=80&w=640",
+  "title": "Thiết Kế API với OpenAPI & Swagger",
+  "author": "Nguyễn Thái Sơn",
+  "price": 145000,
+  "desc": "Xây dựng và tài liệu hóa API với OpenAPI Specification và Swagger UI.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914cc"
+  },
+  "url": "https://images.unsplash.com/photo-1504384308090-63de5c6a6f30?q=80&w=640",
+  "title": "Progressive Web Apps (PWA)",
+  "author": "Phan Võ Lâm",
+  "price": 175000,
+  "desc": "Phát triển ứng dụng web như mobile với tính năng offline, push notification và caching.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914cd"
+  },
+  "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=640",
+  "title": "Big Data & Hadoop Sinh Động",
+  "author": "Nguyễn Ngọc Anh",
+  "price": 240000,
+  "desc": "Xử lý dữ liệu lớn với Hadoop, Spark và trình bày dữ liệu trực quan.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914ce"
+  },
+  "url": "https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=640",
+  "title": "Responsive Web Design Hiện Đại",
+  "author": "Trương Thị Yến",
+  "price": 125000,
+  "desc": "Thiết kế web thích ứng mọi thiết bị với flexbox, grid và media queries.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914cf"
+  },
+  "url": "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=640",
+  "title": "Docker & Container Hoá Ứng Dụng",
+  "author": "Lê Thanh Sơn",
+  "price": 190000,
+  "desc": "Triển khai ứng dụng bằng Docker container, xây dựng multi-stage build và orchestration.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914d0"
+  },
+  "url": "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=640",
+  "title": "Microservices Với Spring Boot",
+  "author": "Đinh Quang Huy",
+  "price": 210000,
+  "desc": "Xây dựng hệ thống microservices với Spring Boot, Eureka, và giao tiếp REST/Message.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914d1"
+  },
+  "url": "https://images.unsplash.com/photo-1463320726281-696a485928c7?q=80&w=640",
+  "title": "Graph Database Với Neo4j",
+  "author": "Phạm Minh Đức",
+  "price": 205000,
+  "desc": "Làm việc với dữ liệu đồ thị, Neo4j và Cypher để mô hình hóa mạng kết nối phức tạp.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914d2"
+  },
+  "url": "https://images.unsplash.com/photo-1526318472351-c75fcf070305?q=80&w=640",
+  "title": "Mobile App Development Với React Native",
+  "author": "Hồ Đức Huy",
+  "price": 180000,
+  "desc": "Phát triển ứng dụng di động cross-platform với React Native và Expo.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914d3"
+  },
+  "url": "https://images.unsplash.com/photo-1528207776546-365bb710ee93?q=80&w=640",
+  "title": "Flutter & Dart Từ A-Z",
+  "author": "Nguyễn Minh Quân",
+  "price": 175000,
+  "desc": "Xây dựng UI đẹp, perform tốt với Flutter, và publish lên iOS & Android.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914d4"
+  },
+  "url": "https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=640",
+  "title": "Kỹ Thuật CI/CD với Jenkins",
+  "author": "Đoàn Văn Thắng",
+  "price": 165000,
+  "desc": "Thiết lập pipeline tự động, kiểm thử và triển khai nhanh với Jenkins & GitHub Actions.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914d5"
+  },
+  "url": "https://images.unsplash.com/photo-1535905496755-26ae35d0ae54?q=80&w=640",
+  "title": "Python Web Development Với Django",
+  "author": "Trần Minh Đức",
+  "price": 190000,
+  "desc": "Xây dựng website và API với Django, ORM, và triển khai production.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914d6"
+  },
+  "url": "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=640",
+  "title": "Phân Tích & Xử Lý Ngôn Ngữ Tự Nhiên (NLP)",
+  "author": "Lê Thị Thanh Hà",
+  "price": 225000,
+  "desc": "Khám phá NLP với Python, spaCy, transformers và ứng dụng chatbot thực tế.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914d7"
+  },
+  "url": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=640",
+  "title": "Blockchain Thiết Kế Hệ Thống Phân Tán",
+  "author": "Nguyễn Văn Dũng",
+  "price": 260000,
+  "desc": "Kiến trúc blockchain, consensus, và xây dựng hệ thống phân tán giả lập.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914d8"
+  },
+  "url": "https://images.unsplash.com/photo-1517433456452-f9633a875f6f?q=80&w=640",
+  "title": "Lập Trình Quan Trắc & GIS Với Python",
+  "author": "Đặng Minh Hải",
+  "price": 200000,
+  "desc": "Xử lý dữ liệu địa lý, GIS và lập trình quan trắc môi trường với Python.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914d9"
+  },
+  "url": "https://images.unsplash.com/photo-1487014679447-9f8336841d58?q=80&w=640",
+  "title": "Game AI & Machine Learning",
+  "author": "Vũ Hải Long",
+  "price": 230000,
+  "desc": "Kết hợp trí tuệ nhân tạo vào game, học reinforcement learning và môi trường Unity.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914da"
+  },
+  "url": "https://images.unsplash.com/photo-1506765515384-028b60a970df?q=80&w=640",
+  "title": "Phát Triển API Gateway Với Kong",
+  "author": "Hà Văn Thiện",
+  "price": 185000,
+  "desc": "Cấu hình và vận hành API Gateway, bảo mật và quản lý traffic với Kong.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914db"
+  },
+  "url": "https://images.unsplash.com/photo-1504384308090-63de5c6a6f30?q=80&w=640",
+  "title": "Thiết Kế Hệ Thống Event-Driven",
+  "author": "Nguyễn Thị Bích Ngọc",
+  "price": 220000,
+  "desc": "Xây dựng hệ thống xử lý sự kiện theo thời gian thực với Kafka và microservices.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914dc"
+  },
+  "url": "https://images.unsplash.com/photo-1517430816045-df4b7de0a16c?q=80&w=640",
+  "title": "Sách Giám Sát & Logging Cho Ứng Dụng",
+  "author": "Lý Hồng Phúc",
+  "price": 160000,
+  "desc": "Thiết lập logging, monitoring và alerting cho ứng dụng sản xuất với ELK stack.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914dd"
+  },
+  "url": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=640",
+  "title": "Thiết Kế UX Cho Mobile App",
+  "author": "Phạm Trang Linh",
+  "price": 150000,
+  "desc": "Nguyên tắc UX dành cho ứng dụng di động, nghiên cứu người dùng và tối ưu trải nghiệm.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914de"
+  },
+  "url": "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?q=80&w=640",
+  "title": "Rust Cho Hệ Thống Nhúng",
+  "author": "Trần Hải Nam",
+  "price": 195000,
+  "desc": "Phát triển hệ thống nhúng hiệu năng cao với Rust và lập trình bare-metal.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914df"
+  },
+  "url": "https://images.unsplash.com/photo-1518773553398-65094b1f1672?q=80&w=640",
+  "title": "Kiến Trúc Clean Code & Clean Architecture",
+  "author": "Đoàn Văn Hưng",
+  "price": 235000,
+  "desc": "Áp dụng nguyên tắc Clean Code, Clean Architecture cho dự án lớn và đảm bảo maintainability.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914e0"
+  },
+  "url": "https://images.unsplash.com/photo-1535905496755-26ae35d0ae54?q=80&w=640",
+  "title": "Phát Triển Real-Time App Với WebSocket",
+  "author": "Nguyễn Quang Duy",
+  "price": 170000,
+  "desc": "Xây dựng chat app, game đa người chơi và streaming real-time với WebSocket và Socket.io.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "690db95f672e96a9bbf914e1"
+  },
+  "url": "https://images.unsplash.com/photo-1528207776546-365bb710ee93?q=80&w=640",
+  "title": "Automation Testing Với Cypress",
+  "author": "Hoàng Thị Mai",
+  "price": 155000,
+  "desc": "Viết test chức năng & end-to-end cho ứng dụng web với Cypress và mô hình BDD.",
+  "language": "vi",
+  "__v": 0,
+  "createdAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T09:18:23.795Z"
+  }
+}]

@@ -1,0 +1,133 @@
+[{
+  "_id": {
+    "$oid": "690d9881ecc839639dcbeda5"
+  },
+  "username": "thinh",
+  "email": "thinh0408205@gmail.com",
+  "password": "$2b$10$b.nCNugqlgr93Jdr8ni7Qej2pYHx/tf.5vpLTipVY3DJSNhu.nJ6i",
+  "address": "Hồ Chí Minh",
+  "avatar": "",
+  "role": "user",
+  "favourites": [
+    {
+      "$oid": "690d90f30155a732f6d8fcaf"
+    },
+    {
+      "$oid": "690d90f30155a732f6d8fcb1"
+    },
+    {
+      "$oid": "690d90f30155a732f6d8fcae"
+    }
+  ],
+  "cart": [],
+  "orders": [
+    {
+      "$oid": "690d9a4defbd269a767cf06d"
+    },
+    {
+      "$oid": "690d9c8cefbd269a767cf0f5"
+    },
+    {
+      "$oid": "690d9c8cefbd269a767cf0f8"
+    },
+    {
+      "$oid": "6922922d5eed62edfb393f9d"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-11-07T06:58:09.899Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T04:48:46.005Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690d9b09efbd269a767cf095"
+  },
+  "username": "admin123",
+  "email": "thinh@gmail.com",
+  "password": "$2b$10$V2HJvz.U48Ap80.yGnIm8.hqpAACClRpEvAMWPzfiMx81bHfGK0pq",
+  "address": "HCM",
+  "avatar": "",
+  "role": "admin",
+  "favourites": [],
+  "cart": [],
+  "orders": [],
+  "createdAt": {
+    "$date": "2025-11-07T07:08:57.111Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-07T07:08:57.111Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "690d9cefefbd269a767cf114"
+  },
+  "username": "tung",
+  "email": "thinh1@gmail.com",
+  "password": "$2b$10$prRQGoLhWMRi9LZSPjMbCueg6VB/O7.HNgrdESyCjmdFLioA/8hJe",
+  "address": "HCM",
+  "avatar": "",
+  "role": "user",
+  "favourites": [
+    {
+      "$oid": "690d90f30155a732f6d8fcaf"
+    },
+    {
+      "$oid": "690d90f30155a732f6d8fcb0"
+    }
+  ],
+  "cart": [
+    {
+      "$oid": "690d90f30155a732f6d8fcb0"
+    }
+  ],
+  "orders": [
+    {
+      "$oid": "690d9d13efbd269a767cf138"
+    },
+    {
+      "$oid": "690d9d13efbd269a767cf13b"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-11-07T07:17:03.761Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T02:42:27.413Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69142060841a1c35a0d5937d"
+  },
+  "username": "tung1",
+  "email": "thinh5@gmail.com",
+  "password": "$2b$10$wsWKyCP3tumg0PC8SvrkR.2b5lnDn5KdVP68cvnDWCLxkc7FGDgT2",
+  "address": "HCm",
+  "avatar": "",
+  "role": "user",
+  "favourites": [
+    {
+      "$oid": "690db95f672e96a9bbf914cd"
+    }
+  ],
+  "cart": [
+    {
+      "$oid": "690db95f672e96a9bbf914cd"
+    }
+  ],
+  "orders": [],
+  "createdAt": {
+    "$date": "2025-11-12T05:51:28.152Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-23T02:42:27.425Z"
+  },
+  "__v": 0
+}]
